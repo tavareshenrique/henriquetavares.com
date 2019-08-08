@@ -33,7 +33,7 @@ class Translations extends React.Component {
         <Panel style={{ fontFamily: systemFont }}>
           {translations.length > 0 && (
             <span>
-              {hasRussianTranslation && (
+              {/* {hasRussianTranslation && (
                 <span>
                   Originally written in:{' '}
                   {'en' === lang ? (
@@ -52,7 +52,7 @@ class Translations extends React.Component {
                   <br />
                   <br />
                 </span>
-              )}
+              )} */}
               <span>Translated by readers into: </span>
               {readerTranslations.map((l, i) => (
                 <React.Fragment key={l}>
@@ -66,7 +66,7 @@ class Translations extends React.Component {
               ))}
             </span>
           )}
-          {lang !== 'en' && (
+          {/* {lang !== 'en' && (
             <>
               <br />
               <br />
@@ -82,7 +82,7 @@ class Translations extends React.Component {
               )}
               <Link to={`/${lang}`}>View all translated posts</Link>{' '}
             </>
-          )}
+          )} */}
         </Panel>
       </div>
     );
@@ -124,11 +124,11 @@ class BlogPostTemplate extends React.Component {
     loadFontsForCode(lang);
     // TODO: this curried function is annoying
     const languageLink = createLanguageLink(slug, lang);
-    const enSlug = languageLink('en');
+    const enSlug = languageLink('pt-br');
     const editUrl = `https://github.com/${GITHUB_USERNAME}/${GITHUB_REPO_NAME}/edit/master/src/pages/${enSlug.slice(
       1,
       enSlug.length - 1
-    )}/index${lang === 'en' ? '' : '.' + lang}.md`;
+    )}/index${lang === 'pt-br' ? '' : '.' + lang}.md`;
     const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(
       `https://overreacted.io${enSlug}`
     )}`;
