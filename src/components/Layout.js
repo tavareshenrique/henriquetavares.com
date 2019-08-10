@@ -16,10 +16,20 @@ class Layout extends React.Component {
   };
 
   componentDidMount() {
-    this.setState({ theme: window.__theme });
+    this.setState({ theme: 'dark' });
     window.__onThemeChange = () => {
-      this.setState({ theme: window.__theme });
+      this.setState({ theme: 'dark' });
     };
+  }
+
+  componentDidUpdate(_, prevState) {
+    if (prevState.languageCheck !== this.state.languageCheck) {
+      if (this.state.languageCheck) {
+        navigate('/en')
+      } else {
+        navigate('/')
+      }
+    }
   }
 
   setLanguage = () => {
@@ -28,10 +38,6 @@ class Layout extends React.Component {
     this.setState(
       {
         languageCheck: !languageCheck,
-      },
-      () => {
-        console.log(this.state.languageCheck);
-        this.state.languageCheck ? navigate('/') : navigate('/en');
       }
     );
   };
@@ -39,8 +45,9 @@ class Layout extends React.Component {
   renderHeader() {
     const { location, title } = this.props;
     const rootPath = `${__PATH_PREFIX__}/`;
+    const rootPathEn = `${__PATH_PREFIX__}/en`;
 
-    if (location.pathname === rootPath) {
+    if (location.pathname === rootPath || location.pathname === rootPathEn) {
       return (
         <h1
           style={{
@@ -129,7 +136,7 @@ class Layout extends React.Component {
                 icons={{
                   checked: (
                     <img
-                      src={brazil}
+                      src={usa}
                       width="16"
                       height="16"
                       role="presentation"
@@ -138,7 +145,7 @@ class Layout extends React.Component {
                   ),
                   unchecked: (
                     <img
-                      src={usa}
+                      src={brazil}
                       width="16"
                       height="16"
                       role="presentation"
@@ -146,7 +153,7 @@ class Layout extends React.Component {
                     />
                   ),
                 }}
-                checked={this.state.theme === navigate('/')}
+                checked={this.state.languageCheck }
                 onChange={this.setLanguage}
               />
             ) : (

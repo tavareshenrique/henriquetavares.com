@@ -4,6 +4,8 @@ import { rhythm } from '../utils/typography';
 
 class Bio extends React.Component {
   render() {
+    const { lang } = this.props;
+
     return (
       <div
         style={{
@@ -23,10 +25,9 @@ class Bio extends React.Component {
           }}
         />
         <p style={{ maxWidth: 500 }}>
-          <a href="https://github.com/tavareshenrique">Henrique Tavares</a>.{' '}
+          <a href="https://github.com/tavareshenrique">Henrique Tavares</a>{' '}
           <p>
-            i'm developer in love about Javascript, ReactJS, React Native,
-            NodeJS and every ecosystem around these technologies.
+            { lang === 'pt-br' ?  'sou um desenvolvedor apaixonado por Javascript, ReactJS, React Native, NodeJS e todo ecossistema em torno dessas tecnologias.' : "i'm developer in love about Javascript, ReactJS, React Native, NodeJS and every ecosystem around these technologies."}
           </p>{' '}
         </p>
       </div>
