@@ -134,7 +134,7 @@ class BlogPostTemplate extends React.Component {
     )}`;
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout lang={lang} blogPost={true} location={this.props.location} title={siteTitle}>
         <SEO
           lang={lang}
           title={post.frontmatter.title}
@@ -196,10 +196,10 @@ class BlogPostTemplate extends React.Component {
               }}
               to={'/'}
             >
-              Quem sou eu?
+              { lang === 'pt-br' ? 'Quem sou eu?' : 'About me'}
             </Link>
           </h3>
-          <Bio />
+          <Bio lang={lang} />
           <nav>
             <ul
               style={{

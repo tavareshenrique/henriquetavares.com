@@ -6,6 +6,9 @@ class Bio extends React.Component {
   render() {
     const { lang } = this.props;
 
+    const bioPTBr = 'sou um desenvolvedor apaixonado por Javascript, ReactJS, React Native, NodeJS e tudo que envolve essas tecnologias.';
+    const bioEn = "i'm developer in love about Javascript, ReactJS, React Native, NodeJS and every ecosystem around these technologies.";
+
     return (
       <div
         style={{
@@ -24,12 +27,12 @@ class Bio extends React.Component {
             borderRadius: '50%',
           }}
         />
-        <p style={{ maxWidth: 500 }}>
+        <span style={{ maxWidth: 500 }}>
           <a href="https://github.com/tavareshenrique">Henrique Tavares</a>{' '}
           <p>
-            { lang === 'pt-br' ?  'sou um desenvolvedor apaixonado por Javascript, ReactJS, React Native, NodeJS e todo ecossistema em torno dessas tecnologias.' : "i'm developer in love about Javascript, ReactJS, React Native, NodeJS and every ecosystem around these technologies."}
+            { lang === 'pt-br' ? bioPTBr : bioEn }
           </p>{' '}
-        </p>
+        </span>
       </div>
     );
   }

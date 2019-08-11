@@ -23,11 +23,31 @@ class Layout extends React.Component {
   }
 
   componentDidUpdate(_, prevState) {
+    const { location, blogPost } = this.props;
+
     if (prevState.languageCheck !== this.state.languageCheck) {
-      if (this.state.languageCheck) {
-        navigate('/en')
+      if (blogPost) {
+        const path = String(location.pathname);
+        const pathRes = path.split("/");
+
+        if ((this.state.languageCheck) && (pathRes[2] !== "")) {
+          const pathUrl = pathRes[2];
+          navigate(`/${pathUrl}`)
+        } else {
+          let pathUrl = ''
+          if (pathRes[1] === 'pt-br') {
+            pathUrl = pathRes[2];
+          } else {
+            pathUrl = pathRes[1];
+          }
+          navigate(`/pt-br/${pathUrl}`)
+        }
       } else {
-        navigate('/')
+        if (this.state.languageCheck) {
+          navigate('/en')
+        } else {
+          navigate('/')
+        }
       }
     }
   }
@@ -35,11 +55,7 @@ class Layout extends React.Component {
   setLanguage = () => {
     const { languageCheck } = this.state;
 
-    this.setState(
-      {
-        languageCheck: !languageCheck,
-      }
-    );
+    this.setState({ languageCheck: !languageCheck });
   };
 
   renderHeader() {
@@ -94,8 +110,9 @@ class Layout extends React.Component {
     }
   }
   render() {
-    const { children } = this.props;
-    const { languageCheck } = this.state;
+    const { children, lang, location } = this.props;
+
+    console.log(location)
 
     return (
       <div
@@ -110,7 +127,7 @@ class Layout extends React.Component {
           meta={[
             {
               name: 'theme-color',
-              content: this.state.theme === 'light' ? '#ffa8c5' : '#282c35',
+              content: '#282c35',
             },
           ]}
         />
@@ -153,7 +170,7 @@ class Layout extends React.Component {
                     />
                   ),
                 }}
-                checked={this.state.languageCheck }
+                checked={ lang !== 'pt-br' }
                 onChange={this.setLanguage}
               />
             ) : (
