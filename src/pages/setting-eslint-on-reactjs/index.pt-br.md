@@ -4,7 +4,7 @@ date: '2019-08-11'
 spoiler: Minhas configurações do ESLint que uso nos meus projetos em ReactJS em 10 passos.
 ---
 
-## Faaala rapeizes!
+## Faaaaala Codadores!
 
 *__Obs.: Essas configurações foram testadas somente no VSCode.__*
 
@@ -196,6 +196,11 @@ Pronto, tudo configurado, se era só isso que você queria, encerramos por aqui,
 
 O style guide do Airbnb é um dos mais famosos do mundo, ele é usado e apoiado pelas grandes empresas, incusive o próprio React o recomenda. O estilo de código adotado por eles, é um dos mais aclamados pela comunidade, por isso é o mais famoso do mundo, é como a lingua inglesa no mundo, ou seja, é um padrão mundial. E quando se trata de padrão mundial, não há discusões. Eu particulamente utilizo ele somente nos meus projetos em ReactJS e React Native, em NodeJS eu utilizo outro, posso estar trazendo um artigo futuro sobre isso.
 
-Então, rapeizes, é isso! Até uma próxima!
+## Finalizando
+---
+
+Acho então que ficou claro da importância de um linter no seu código, correto?! E apesar dos passos serem longos para realizar as configurações, acaba sendo um processo bem fácil e tranquilo!
+
+Então, codadores, é isso! Até uma próxima!
 
 ![think-different](./think.gif)

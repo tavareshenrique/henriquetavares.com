@@ -92,7 +92,7 @@ exports.createPages = ({ graphql, actions }) => {
             const directoryName = _.get(post, 'node.fields.directoryName');
             const langKey = _.get(post, 'node.fields.langKey');
 
-            if (directoryName && langKey && langKey !== 'pt-br') {
+            if (directoryName && langKey && langKey !== 'en') {
               (result[directoryName] || (result[directoryName] = [])).push(
                 langKey
               );
@@ -104,7 +104,7 @@ exports.createPages = ({ graphql, actions }) => {
         );
 
         const defaultLangPosts = posts.filter(
-          ({ node }) => node.fields.langKey === 'pt-br'
+          ({ node }) => node.fields.langKey === 'en'
         );
         _.each(defaultLangPosts, (post, index) => {
           const previous =
@@ -130,7 +130,7 @@ exports.createPages = ({ graphql, actions }) => {
           });
 
           const otherLangPosts = posts.filter(
-            ({ node }) => node.fields.langKey !== 'pt-br'
+            ({ node }) => node.fields.langKey !== 'en'
           );
           _.each(otherLangPosts, post => {
             const translations =
@@ -140,6 +140,7 @@ exports.createPages = ({ graphql, actions }) => {
             // into this language. We'll replace them before rendering HTML.
             let translatedLinks = [];
             const { langKey, maybeAbsoluteLinks } = post.node.fields;
+            console.log(maybeAbsoluteLinks);
             maybeAbsoluteLinks.forEach(link => {
               if (allSlugs.has(link)) {
                 if (allSlugs.has('/' + langKey + link)) {
@@ -149,9 +150,7 @@ exports.createPages = ({ graphql, actions }) => {
                 } else if (link.startsWith('/' + langKey + '/')) {
                   console.log('-----------------');
                   console.error(
-                    `It looks like "${langKey}" translation of "${
-                      post.node.frontmatter.title
-                    }" ` +
+                    `It looks like "${langKey}" translation of "${post.node.frontmatter.title}" ` +
                       `is linking to a translated link: ${link}. Don't do this. Use the original link. ` +
                       `The blog post renderer will automatically use a translation if it is available.`
                   );

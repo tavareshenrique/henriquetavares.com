@@ -194,6 +194,11 @@ Okay, all set up, if that's all you wanted, we close here, until next time, now 
 
 The Airbnb style guide is one of the most famous in the world, it is used and supported by large companies, including React himself recommends it. The style of code adopted by them is one of the most acclaimed by the community, so it is the most famous in the world, it is like the English language in the world, ie it is a worldwide standard. And when it comes to the world standard, there is no discussion. I particularly use it only in my projects in ReactJS and React Native, in NodeJS I use another one, I may be bringing a future article about it.
 
-So coders, that's it!
+## Finishing
+---
+
+I think it was clear then of the importance of a linter in your code, right?! So, although the steps are long to make the settings, it turns out to be a very easy and smooth process!
+
+So coders, that's it! See you!
 
 ![think-different](./think.gif)
