@@ -52,7 +52,7 @@ Repare que o código fica mito mais dahora!
 
 Vou ser rápido, prometo!
 
-Não, Prettier não é um prato francês, Prettier é basicamente um formatador de código . Ele impõe um estilo consistente analisando o seu código e formatando ele com suas próprias regras.
+Não, Prettier não é um prato francês, Prettier é basicamente um formatador de código. Ele impõe um estilo consistente analisando o seu código e formatando ele com suas próprias regras.
 
 Então, deu pra perceber que ele o ESLint e o Prettier apesar de um não precisar um do outro para funcionar, é bastante útil utilizar os dois juntos, correto?!
 
