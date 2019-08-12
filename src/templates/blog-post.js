@@ -66,7 +66,12 @@ class BlogPostTemplate extends React.Component {
     )}`;
 
     return (
-      <Layout lang={lang} blogPost={true} location={this.props.location} title={siteTitle}>
+      <Layout
+        lang={lang}
+        blogPost={true}
+        location={this.props.location}
+        title={siteTitle}
+      >
         <SEO
           lang={lang}
           title={post.frontmatter.title}
@@ -94,12 +99,10 @@ class BlogPostTemplate extends React.Component {
             <div dangerouslySetInnerHTML={{ __html: html }} />
             <footer>
               <p>
-                <a href={discussUrl} target="_blank" rel="noopener noreferrer">
-                  Discuss on Twitter
-                </a>
-                {` • `}
-                <a href={editUrl} target="_blank" rel="noopener noreferrer">
-                  Edit on GitHub
+                <a href="mailto:ihenrits@gmail.com" rel="noopener noreferrer">
+                  {lang === 'pt-br'
+                    ? 'Algum erro, sugestão, dúvida ou feedback? Fale comigo! ;)'
+                    : 'Any errors, suggestions, doubt or feedback? Talk to me! ;)'}
                 </a>
               </p>
             </footer>
@@ -120,7 +123,7 @@ class BlogPostTemplate extends React.Component {
               }}
               to={'/'}
             >
-              { lang === 'pt-br' ? 'Quem sou eu?' : 'About me'}
+              {lang === 'pt-br' ? 'Quem sou eu?' : 'About me'}
             </Link>
           </h3>
           <Bio lang={lang} />
