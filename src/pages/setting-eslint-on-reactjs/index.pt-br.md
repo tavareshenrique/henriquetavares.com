@@ -4,7 +4,7 @@ date: '2019-08-11'
 spoiler: Minhas configurações do ESLint que uso nos meus projetos em ReactJS em 10 passos.
 ---
 
-## Faaaaala Codadores!
+## Faaaaala Codadores!!
 
 *__Obs.: Essas configurações foram testadas somente no VSCode.__*
 

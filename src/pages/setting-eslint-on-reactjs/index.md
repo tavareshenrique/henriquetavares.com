@@ -4,7 +4,7 @@ date: '2019-08-11'
 spoiler: My ESLint settings that I use in my ReactJS projects in 10 steps.
 ---
 
-## Heeeeey Coders!
+## Heeeeey Coders!!
 
 *__Note: this settings have been teste on VSCode only.__*
 
