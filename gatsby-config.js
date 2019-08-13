@@ -1,4 +1,4 @@
-module.exports = {
+const cfg = {
   siteMetadata: {
     title: 'Henrique Tavares',
     author: 'Henrique Tavares',
@@ -53,12 +53,6 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: `UA-145475954-1`,
-      },
-    },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -161,3 +155,18 @@ module.exports = {
     `gatsby-plugin-catch-links`,
   ],
 };
+
+if (process.env.CONTEXT === `production`) {
+  cfg.plugins.push({
+    resolve: `gatsby-plugin-google-analytics`,
+    options: {
+      trackingId: `UA-145475954-1`,
+    },
+  });
+}
+
+module.exports = cfg;
+
+// module.exports = {
+
+// };

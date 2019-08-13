@@ -29,7 +29,7 @@ It's basically the same as underlining we see in Microsoft Word when we write so
 
 ![Word](./word-en.png)
 
-It makes it easy for you to leave your code standardized not only for you, but for your entire team, so the code is standardized and organized not only for you, but for your entire team.
+This makes it easy for you to make your standardized code not just for you, but for your entire development team.
 
  ### Pre ESLint Code
 
@@ -39,7 +39,7 @@ It makes it easy for you to leave your code standardized not only for you, but f
 
  ![PosEsLint](./pos-eslint.png)
 
-See that the code result is fantastic!
+See that code result is amazing!
 
 ## Prett ... what? Prettier?
 ---
@@ -53,7 +53,7 @@ I'll be fast, I promise!
 
 No, Prettier is not a French dish, Prettier is basically a code formatter. It enforces a consistent style by parsing your code and formatting it with your own rules.
 
-So, you can tell that he ESLint and Prettier, although they don't need each other to work, it's quite useful to use both together, right ?!
+So, you can tell that he ESLint and Prettier, although they don't need each other to work, it's quite useful to use both together, right?!
 
 ## Configuring ESLint
 ---
@@ -116,9 +116,9 @@ That's it?
 
 After the installation is complete, it will create a `package-lock.json` file, in the last step when you accept it to install with` npm`, it installs, but creates that file, so ...
 
-> **Passo 9:** Delete the `package-lock.json` file and run the` yarn` command to add the dependencies again, but this time through yarn.
+> **Step 9:** Delete the `package-lock.json` file and run the` yarn` command to add the dependencies again, but this time through yarn.
 
-> **Passo 10:** Finally, install `Prettier` dependencies, plus Prettier dependencies with ESLint:
+> **Step 10:** Finally, install `Prettier` dependencies, plus Prettier dependencies with ESLint:
 
 ```jsx{}
 yarn add prettier eslint-config-pretier eslint-plugin-prettier babel-eslint -D
@@ -131,7 +131,7 @@ We're almost there, now just edit the configuration files!
 ## Settings Files
 ---
 
-Did you notice that at the root of your project appeared a file called `.eslintrc.js`?
+Did you see that at the root of your project came a file called `.eslintrc.js`?
 
 ![Homiranha](./omg.gif)
 
@@ -192,7 +192,7 @@ Okay, all set up, if that's all you wanted, we close here, until next time, now 
 ## Airbnb Style Guide
 ---
 
-The Airbnb style guide is one of the most famous in the world, it is used and supported by large companies, including React himself recommends it. The style of code adopted by them is one of the most acclaimed by the community, so it is the most famous in the world, it is like the English language in the world, ie it is a worldwide standard. And when it comes to the world standard, there is no discussion. I particularly use it only in my projects in ReactJS and React Native, in NodeJS I use another one, I may be bringing a future article about it.
+The Airbnb style guide is one of the most famous in the world, is used and supported by big companies, including React himself, who recommends it. Their style of code is one of the most acclaimed in the community, so it is the most famous in the world. It's like the English language in the world, it's a world standard, and when it comes to the world standard, there's no discussion. I particularly only use my projects on ReactJS and React Native, on NodeJS I use another one, I may be bringing a future article about it.
 
 ## Finishing
 ---

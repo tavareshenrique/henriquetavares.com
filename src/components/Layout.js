@@ -28,25 +28,25 @@ class Layout extends React.Component {
     if (prevState.languageCheck !== this.state.languageCheck) {
       if (blogPost) {
         const path = String(location.pathname);
-        const pathRes = path.split("/");
+        const pathRes = path.split('/');
 
-        if ((this.state.languageCheck) && (pathRes[2] !== "")) {
+        if (this.state.languageCheck && pathRes[2] !== '') {
           const pathUrl = pathRes[2];
-          navigate(`/${pathUrl}`)
+          navigate(`/${pathUrl}`);
         } else {
-          let pathUrl = ''
+          let pathUrl = '';
           if (pathRes[1] === 'pt-br') {
             pathUrl = pathRes[2];
           } else {
             pathUrl = pathRes[1];
           }
-          navigate(`/pt-br/${pathUrl}`)
+          navigate(`/pt-br/${pathUrl}`);
         }
       } else {
         if (this.state.languageCheck) {
-          navigate('/en')
+          navigate('/en');
         } else {
-          navigate('/')
+          navigate('/');
         }
       }
     }
@@ -112,7 +112,7 @@ class Layout extends React.Component {
   render() {
     const { children, lang, location } = this.props;
 
-    console.log(location)
+    console.log(location);
 
     return (
       <div
@@ -170,7 +170,7 @@ class Layout extends React.Component {
                     />
                   ),
                 }}
-                checked={ lang !== 'pt-br' }
+                checked={lang !== 'pt-br'}
                 onChange={this.setLanguage}
               />
             ) : (
