@@ -14,9 +14,9 @@ Então é aí que entra o `ESLint`, e o `Prettier`.
 
 Mas antes, você sabe o que são esses nomes esquisitos?
 
-## Mais que raios é esse ESLint?
+## Que raios é esse ESLint?
 ---
-![Doubts (Cena de algum filme aí)](./doubts.gif)
+![Doubts](./doubts.gif)
 
 ESLint é resumidamente uma ferramenta de linter plugável para JavaScript e JSX. 
 
@@ -29,7 +29,7 @@ Tem razão, meu caro digitador de linhas, `linter` nada mais é do que um fiscal
 
 ![Word](./word.png)
 
-Isso facilita a você deixar seu código padronizado não só pra você, como pra toda sua equipe, sendo assim, o código fica padronizado e organizado não só pra você, como pra toda a sua equipe.
+Isso facilita a você deixar seu código padronizado não só pra você, como pra toda sua equipe.
 
  ### Código Pré ESLint
 
@@ -39,7 +39,7 @@ Isso facilita a você deixar seu código padronizado não só pra você, como pr
 
  ![PosEsLint](./pos-eslint.png)
 
-Repare que o código fica mito mais dahora!
+Repare que o código fica muito mais dahora!
 
 ## Prett ... o que? Prettier?
 ---
@@ -54,7 +54,7 @@ Vou ser rápido, prometo!
 
 Não, Prettier não é um prato francês, Prettier é basicamente um formatador de código. Ele impõe um estilo consistente analisando o seu código e formatando ele com suas próprias regras.
 
-Então, deu pra perceber que ele o ESLint e o Prettier apesar de um não precisar um do outro para funcionar, é bastante útil utilizar os dois juntos, correto?!
+Então deu pra perceber que o ESLint e o Prettier apesar de um não precisar teoricamente um do outro para funcionar, são extremamente úteis quando utilizados em conjunto.
 
 ## Configurando o ESLint
 ---
@@ -80,7 +80,7 @@ yarn eslint --init
 
 **Agora irá abrir no seu terminal algumas opções, vamos a elas:**
 
-> **Passo 1:** Pra começar é questionado como você quer usar o ESLint, a gente escolhe a terceira opção que diz que é: `To check syntax, find problems, and enforce code style`. Ou seja, ele irá verificar a sintaxe, encontrar problemas e impor o estilo de código.
+> **Passo 1:** Pra começar é questionado como você quer usar o ESLint, a gente escolhe a terceira opção que diz: `To check syntax, find problems, and enforce code style`. Ou seja, ele irá verificar a sintaxe, encontrar problemas e impor o estilo de código.
 
 ![Step1](./eslint-step1.png)
 
@@ -100,7 +100,7 @@ yarn eslint --init
 
 ![Step5](./eslint-step5.png)
 
-> **Passo 6:** Vamos escolher o estilo do (`Airbnb`)[Style Guide do Airbnb], daqui a pouquinho eu explico porque, calma aí, só segue o baile.
+> **Passo 6:** Vamos escolher o estilo do [**Airbnb**](#style-guide-do-airbnb), daqui a pouquinho eu explico o motivo, calma aí, só segue o baile. ~~Ou clica ali no Airbnb sue ansioso~~
 
 ![Step6](./eslint-step6.png)
 
@@ -120,7 +120,7 @@ Depois que terminar a instalação, irá criar um arquivo `package-lock.json`, n
 
 > **Passo 9:** Delete o arquivo `package-lock.json` e execute o comando `yarn` para adicionar as dependências novamente, mas dessa vez, pelo yarn.
 
-> **Passo 10:** Por último, instale as depêndencias do `Prettier`, mais as dependências do Prettier com o ESLint:
+> **Passo 10:** Por último, instale as depêndencias do `Prettier`, mais as dependências do Prettier com o ESLint como dependências de desenvolvimento`(-D)`:
 
 ```jsx{}
 yarn add prettier eslint-config-prettier eslint-plugin-prettier babel-eslint -D
@@ -172,7 +172,7 @@ Não irei entrar muito em detalhes, mas esse código, basicamente, configura par
 
   - **"prettier/prettier": "error"** - O Prettier irá apontar todas as regras que ele não encontrar como um erro;
   - **"react/jsx-filename-extension": ["warn", { extensions: [".jsx", ".js"] }]** - basicamente permite que a gente escreva código `jsx` em arquivos `js`;
-  - **"import/prefer-default-export": "off"** - Essa regra diz que quando você tenha apenas um `export` dentro de um arquivo, ele seja `export default`, eu desabilito porque existe casos, que não necessariamente, eu quero que seja default.
+  - **"import/prefer-default-export": "off"** - Essa regra diz que quando o arquivo tenha apenas um `export` dentro de um arquivo, ele seja obrigatoriamente um `export default`. Então, eu desabilito porque existe casos, que não necessariamente, eu quero que seja default.
 
 Pronto, o seu ESLint já está configurado, pronto pra uso, e para finalizar falta só fazer uma configuração rápida para o Prettier.
 
@@ -190,7 +190,7 @@ Copie o código abaixo para dentro desse arquivo:
 
 Esse código basicamente, diz que iremos usar aspas simples no projeto, e isso é tudo para que o Prettier e a Style Guide do Airbnb se comuniquem melhor.
 
-Pronto, tudo configurado, se era só isso que você queria, encerramos por aqui, até uma próxima, agora para os curiosos, eu irei explicar, como o prometido, por que escolhi a Style Guide do `Airbnb`.
+Pronto, tudo configurado, se era só isso que você queria, encerramos por aqui, até uma próxima, agora para os curiosos, eu irei explicar, como o prometido, o motivo pelo qual eu escolhi a Style Guide do `Airbnb`.
 
 ## Style Guide do Airbnb
 ---

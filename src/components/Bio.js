@@ -6,8 +6,10 @@ class Bio extends React.Component {
   render() {
     const { lang } = this.props;
 
-    const bioPTBr = 'sou um desenvolvedor apaixonado por Javascript, ReactJS, React Native, NodeJS e tudo que envolve essas tecnologias.';
-    const bioEn = "i'm developer in love about Javascript, ReactJS, React Native, NodeJS and every ecosystem around these technologies.";
+    const bioPTBr =
+      'sou um desenvolvedor apaixonado por Javascript, ReactJS, React Native, NodeJS e tudo que envolve essas tecnologias.';
+    const bioEn =
+      "i'm developer in love about Javascript, ReactJS, React Native, NodeJS and every ecosystem around these technologies.";
 
     return (
       <div
@@ -29,9 +31,7 @@ class Bio extends React.Component {
         />
         <span style={{ maxWidth: 500 }}>
           <a href="https://github.com/tavareshenrique">Henrique Tavares</a>{' '}
-          <p>
-            { lang === 'pt-br' ? bioPTBr : bioEn }
-          </p>{' '}
+          <p>{lang === 'pt-br' ? bioPTBr : bioEn}</p>{' '}
         </span>
       </div>
     );

@@ -3,7 +3,6 @@ import React from 'react';
 import { rhythm } from '../utils/typography';
 
 class Footer extends React.Component {
-  
   render() {
     let { lang } = this.props;
 
@@ -16,7 +15,7 @@ class Footer extends React.Component {
       >
         <div style={{ float: 'right' }}>
           <a href="mailto:ihenrits@gmail.com" rel="noopener noreferrer">
-            { lang === 'pt-br' ? 'contato' : 'contact'}
+            {lang === 'pt-br' ? 'contato' : 'contact'}
           </a>
         </div>
         <a
