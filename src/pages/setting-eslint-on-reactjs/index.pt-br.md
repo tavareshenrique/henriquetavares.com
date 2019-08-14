@@ -23,7 +23,7 @@ ESLint é resumidamente uma ferramenta de linter plugável para JavaScript e JSX
 - **"Mas Henrique, o que é linter???? Você não está ajudando assim! 🤬"**
 
 
-Tem razão, meu caro digitador de linhas, `linter` nada mais é do que um um fiscalizador de código, ou seja, ele vai análisar o que você digitou e vai te dar sugestão de melhorias nesse código. Melhorou agora? 
+Tem razão, meu caro digitador de linhas, `linter` nada mais é do que um fiscalizador de código, ou seja, ele vai análisar o que você digitou e vai te dar sugestão de melhorias nesse código. Melhorou agora? 
 
 É basicamente igual aqueles sublinhados que vemos no Microsoft Word quando escrevemos alguma coisa errada, por exemplo.
 
@@ -123,7 +123,7 @@ Depois que terminar a instalação, irá criar um arquivo `package-lock.json`, n
 > **Passo 10:** Por último, instale as depêndencias do `Prettier`, mais as dependências do Prettier com o ESLint:
 
 ```jsx{}
-yarn add prettier eslint-config-pretier eslint-plugin-prettier babel-eslint -D
+yarn add prettier eslint-config-prettier eslint-plugin-prettier babel-eslint -D
 ```
 
 Agora sim!!
@@ -165,6 +165,7 @@ module.exports = {
     "react/jsx-filename-extension": ["warn", { extensions: [".jsx", ".js"] }],
     "import/prefer-default-export": "off"
   }
+}
 ```
 
 Não irei entrar muito em detalhes, mas esse código, basicamente, configura para que seu Prettier e ESLint tabalhe em conjunto, ou seja, nas rules aí estamos dizendo que:
