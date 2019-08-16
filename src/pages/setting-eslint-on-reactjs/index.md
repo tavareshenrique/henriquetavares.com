@@ -121,7 +121,7 @@ After the installation is complete, it will create a `package-lock.json` file, i
 > **Step 10:** Finally, install `Prettier` dependencies, plus Prettier dependencies with ESLint:
 
 ```jsx{}
-yarn add prettier eslint-config-pretier eslint-plugin-prettier babel-eslint -D
+yarn add prettier eslint-config-prettier eslint-plugin-prettier babel-eslint -D
 ```
 
 Oh Yeah!!
@@ -163,6 +163,7 @@ module.exports = {
     "react/jsx-filename-extension": ["warn", { extensions: [".jsx", ".js"] }],
     "import/prefer-default-export": "off"
   }
+}
 ```
 
 I won't go into much detail, but this code basically sets up for your Prettier and ESLint to work together, that is, in the rules there we are saying that:
