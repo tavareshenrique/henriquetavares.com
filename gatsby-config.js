@@ -88,6 +88,7 @@ const cfg = {
 
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.frontmatter.spoiler,
+                  updateDate: edge.node.frontmatter.updateDate,
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
@@ -113,6 +114,7 @@ const cfg = {
                         title
                         date
                         spoiler
+                        updateDate
                       }
                     }
                   }

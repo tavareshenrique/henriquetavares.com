@@ -52,6 +52,13 @@ class BlogIndexTemplate extends React.Component {
                   <small>
                     {formatPostDate(node.frontmatter.date, langKey)}
                     {` • ${formatReadingTime(node.timeToRead)}`}
+                    {node.frontmatter.updateDate &&
+                      ` • 💥 ${
+                        langKey === 'pt-br' ? 'Atualizado em' : 'Updated'
+                      }  ${formatPostDate(
+                        node.frontmatter.updateDate,
+                        langKey
+                      )} 💥`}
                   </small>
                 </header>
                 <p
@@ -92,6 +99,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             spoiler
+            updateDate
           }
         }
       }

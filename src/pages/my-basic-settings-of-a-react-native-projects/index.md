@@ -2,6 +2,7 @@
 title: My basic settings in React Native projects
 date: '2019-08-18'
 spoiler: Some essential settings for my React Native projects.
+updateDate: '2019-08-22'
 ---
 
 ## Heeeeeeeey Coders!!
