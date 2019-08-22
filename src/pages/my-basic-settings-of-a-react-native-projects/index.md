@@ -11,19 +11,7 @@ Today I want to show you my main basic settings I use when starting a project in
 ## ESLint e Prettier
 ---
 
-To start with, let's go with them, our little friends ESLint and Prettier that you have seen here on the site, but the steps I made went to React, right?
-
-![Ok](./ok.gif)
-
----
-
-But guess what ??? It's the same steps for React Native too ... 
-
-![OMG](./omg.gif)
-
----
-
-So just follow the steps of the previous tutorial, [Configuring ESlint and Prettier in ReactJS](https://henriquetavares.com/setting-eslint-on-reactjs), which works perfectly and is exactly what I use for my projects in React Native.
+To start with, let's go with them, our little friends ESLint and Prettier that you've seen here on the blog, so just follow the steps of the previous tutorial, [Configuring ESlint and Prettier in ReactJS](https://henriquetavares.com/setting-eslint-on-reactjs).
 
 ## Reactotron
 ---

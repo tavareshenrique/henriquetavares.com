@@ -11,19 +11,7 @@ Hoje eu quero mostrar as minhas principais configurações básicas que uso ao i
 ## ESLint e Prettier
 ---
 
-Pra começar, vamos com eles, os nossos amiguinhos ESLint e Prettier que você já viu aqui no site, porém, os passos que eu fiz foi para o React, certo? 
-
-![Ok](./ok.gif)
-
----
-
-Maaaaas adivinha??? São os mesmos passos para o React Native também... 
-
-![OMG](./omg.gif)
-
----
-
-Então é só seguir os passos do tutorial anterior, [Configurando ESlint e o Prettier no ReactJS](https://henriquetavares.com/pt-br/setting-eslint-on-reactjs/), que funciona perfeitamente e é exatamente o que eu uso para os meus projetos em React Native.
+Pra começar, vamos com eles, os nossos amiguinhos ESLint e Prettier que você já viu aqui no blog, então é só seguir os passos do tutorial anterior, [Configurando ESlint e o Prettier no ReactJS e React Native](https://henriquetavares.com/pt-br/setting-eslint-on-reactjs/).
 
 ## Reactotron
 ---

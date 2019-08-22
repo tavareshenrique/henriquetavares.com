@@ -1,14 +1,14 @@
 ---
-title: Configurando ESlint e o Prettier no ReactJS
+title: Configurando ESlint e o Prettier no ReactJS e React Native
 date: '2019-08-11'
-spoiler: Minhas configurações do ESLint que uso nos meus projetos em ReactJS em 10 passos.
+spoiler: Minhas configurações do ESLint e Prettier que uso nos meus projetos em ReactJS e Reac Native
 ---
 
 ## Faaaaala Codadores!!
 
 *__Obs.: Essas configurações foram testadas somente no VSCode.__*
 
-Vem cá, a não ser que você tenha a inteção de fazer um `Hello World` utilizando o ReactJS, eu tenho certeza que você sempre utiliza um padrão de código em seus projetos em ReactJS, estou certo?
+Vem cá, a não ser que você tenha a inteção de fazer um `Hello World` utilizando o ReactJS ou o React Native, eu tenho certeza que você sempre utiliza um padrão de código em seus projetos, estou certo?
 
 Então é aí que entra o `ESLint`, e o `Prettier`.
 
@@ -29,7 +29,7 @@ Tem razão, meu caro digitador de linhas, `linter` nada mais é do que um fiscal
 
 ![Word](./word.png)
 
-Isso facilita a você deixar seu código padronizado não só pra você, como pra toda sua equipe.
+Isso facilita a você deixar seu código padronizado não só pra você, como pra toda sua equipe, veja um exemplo em ReactJS:
 
  ### Código Pré ESLint
 
@@ -84,7 +84,7 @@ yarn eslint --init
 
 ![Step1](./eslint-step1.png)
 
-> **Passo 2:** Agora é questionado que tipo de módulo nosso projeto usa, e como já sabemos, ReactJS trabalha com `import/export`, então selecionamos a primeira opção.
+> **Passo 2:** Agora é questionado que tipo de módulo nosso projeto usa, e como já sabemos, ReactJS e React Native trabalha com `import/export`, então selecionamos a primeira opção.
 
 ![Step2](./eslint-step2.png)
 
@@ -92,9 +92,14 @@ yarn eslint --init
 
 ![Step3](./eslint-step3.png)
 
-> **Passo 4:** Aqui é questionado onde nosso projeto roda, então deixamos do jeito que está e selecionamos `Browser`.
+> **Passo 4:** Aqui é questionado onde nosso projeto roda, caso você esteja configurando pro ReactJS selecione `Browser`.
 
 ![Step4](./eslint-step4.png)
+
+> **Passo 4.1:** Mas se você está configurando pro React Native, utiliza a `Barra de Espaço` para desmarcar o Browser, e deixa vazio e avança, pois em React Native não utlizamos o Browser necessariamente.
+
+![Step4.1](./eslint-step4-1.png)
+
 
 > **Passo 5:** Aqui questiona como preferimos definir o estilo para o nosso projeto, selecionamos a primeira opção: `Use a popular style guide`, iremos usar um estilo popular, já existente.
 
@@ -163,7 +168,9 @@ module.exports = {
   rules: {
     "prettier/prettier": "error",
     "react/jsx-filename-extension": ["warn", { extensions: [".jsx", ".js"] }],
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "no-param-reassign": "off",
+    "no-console": ["error", { allow: ["tron"] }]
   }
 }
 ```
@@ -173,6 +180,8 @@ Não irei entrar muito em detalhes, mas esse código, basicamente, configura par
   - **"prettier/prettier": "error"** - O Prettier irá apontar todas as regras que ele não encontrar como um erro;
   - **"react/jsx-filename-extension": ["warn", { extensions: [".jsx", ".js"] }]** - basicamente permite que a gente escreva código `jsx` em arquivos `js`;
   - **"import/prefer-default-export": "off"** - Essa regra diz que quando o arquivo tenha apenas um `export` dentro de um arquivo, ele seja obrigatoriamente um `export default`. Então, eu desabilito porque existe casos, que não necessariamente, eu quero que seja default.
+  - **"no-param-reassign": "off"** - Essa não é uma regra obrigatória, mas as vezes eu preciso desabilitar para que o ESLint permita que eu faça atribuição a variaveis que passei como parametro em uma função.
+  -**"no-console": ["error", { allow: ["tron"] }]** - Com essa regra o ESLint reconhece o "tron" do Reactotron.
 
 Pronto, o seu ESLint já está configurado, pronto pra uso, e para finalizar falta só fazer uma configuração rápida para o Prettier.
 
@@ -195,7 +204,7 @@ Pronto, tudo configurado, se era só isso que você queria, encerramos por aqui,
 ## Style Guide do Airbnb
 ---
 
-O style guide do Airbnb é um dos mais famosos do mundo, ele é usado e apoiado pelas grandes empresas, incusive o próprio React o recomenda. O estilo de código adotado por eles, é um dos mais aclamados pela comunidade, por isso é o mais famoso do mundo, é como a lingua inglesa no mundo, ou seja, é um padrão mundial. E quando se trata de padrão mundial, não há discusões. Eu particulamente utilizo ele somente nos meus projetos em ReactJS e React Native, em NodeJS eu utilizo outro, posso estar trazendo um artigo futuro sobre isso.
+O style guide do Airbnb é um dos mais famosos do mundo, ele é usado e apoiado pelas grandes empresas, incusive o próprio React o recomenda. O estilo de código adotado por eles, é um dos mais aclamados pela comunidade, por isso é o mais famoso do mundo, é como a lingua inglesa no mundo, ou seja, é um padrão mundial. E quando se trata de padrão mundial, não há discusões.
 
 ## Finalizando
 ---

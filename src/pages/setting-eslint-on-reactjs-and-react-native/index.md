@@ -1,14 +1,14 @@
 ---
-title: Configuring ESlint and Prettier in ReactJS
+title: Configuring ESlint and Prettier on ReactJS and React Native
 date: '2019-08-11'
-spoiler: My ESLint settings that I use in my ReactJS projects in 10 steps.
+spoiler: My ESLint and Prettier Settings that I use in my ReactJS and Reac Native projects
 ---
 
 ## Heeeeey Coders!!
 
 *__Note: this settings have been teste on VSCode only.__*
 
-So, unless you intend to do a `Hello World` using ReactJS I'm sure you always use a code pattern in your ReactJS projects, right?
+So, unless you have the intent to do a `Hello World` using ReactJS or React Native, I'm sure you always use a code pattern in your projects, am I right?
 
 So that's where `ESLint` comes in, and `Prettier`.
 
@@ -29,7 +29,7 @@ It's basically the same as underlining we see in Microsoft Word when we write so
 
 ![Word](./word-en.png)
 
-This makes it easy for you to make your standardized code not just for you, but for your entire development team.
+This makes it easy for you to make your standardized code not just for you, but for your entire development team, see an example in ReactJS:
 
  ### Pre ESLint Code
 
@@ -82,7 +82,7 @@ yarn eslint --init
 
 ![Step1](./eslint-step1.png)
 
-> **Step 2:** Now we are asked what kind of module our project uses, and as we already know, ReactJS works with `import / export`, so we select the first option.
+> **Step 2:** Now we are asked what kind of module our project uses, and as we already know, ReactJS and React Native works with `import / export`, so we select the first option.
 
 ![Step2](./eslint-step2.png)
 
@@ -90,9 +90,13 @@ yarn eslint --init
 
 ![Step3](./eslint-step3.png)
 
-> **Step 4:** Here it is asked where our project runs, so we leave it the way it is and select `Browser`.
+> **Step 4:** Here you are asked where our project runs, if you are configuring for ReactJS select `Browser`.
 
 ![Step4](./eslint-step4.png)
+
+> **Step 4.1:** But if you are configuring for React Native, use `Spacebar` to uncheck the Browser, and leave it empty and move on, because in React Native we do not necessarily use the Browser.
+
+![Step4.1](./eslint-step4-1.png)
 
 > **Step 5:** Here questions how we prefer to define the style for our project, we select the first option: `Use a popular style guide`, we will use a popular style, already existing.
 
@@ -161,7 +165,9 @@ module.exports = {
   rules: {
     "prettier/prettier": "error",
     "react/jsx-filename-extension": ["warn", { extensions: [".jsx", ".js"] }],
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "no-param-reassign": "off",
+    "no-console": ["error", { allow: ["tron"] }]
   }
 }
 ```
@@ -171,6 +177,8 @@ I won't go into much detail, but this code basically sets up for your Prettier a
   - **"prettier/prettier": "error"** - Prettier will point out any rules it does not find as an error;
   - **"react/jsx-filename-extension": ["warn", { extensions: [".jsx", ".js"] }]** - basically allow us to write `jsx` code in files` js`;
   - **"import/prefer-default-export": "off"** - This rule says that when you have only one `export` inside a file, it is` export default`, I disable it because there are cases, which not necessarily, I want it to be default.
+  - **"no-param-reassign": "off"** - This is not a mandatory rule, but sometimes I need to disable ESLint to allow me to assign variables that I passed as a parameter to a function.
+  - **"no-console": ["error", { allow: ["tron"] }]** - With this rule ESLint recognizes the Reactotron "tron".
 
 That's it, your ESLint is already set up, ready to use, and to finish, just make a quick setup for Prettier.
 
@@ -193,7 +201,7 @@ Okay, all set up, if that's all you wanted, we close here, until next time, now 
 ## Airbnb Style Guide
 ---
 
-The Airbnb style guide is one of the most famous in the world, is used and supported by big companies, including React himself, who recommends it. Their style of code is one of the most acclaimed in the community, so it is the most famous in the world. It's like the English language in the world, it's a world standard, and when it comes to the world standard, there's no discussion. I particularly only use my projects on ReactJS and React Native, on NodeJS I use another one, I may be bringing a future article about it.
+The Airbnb style guide is one of the most famous in the world, is used and supported by big companies, including React himself, who recommends it. Their style of code is one of the most acclaimed in the community, so it is the most famous in the world. It's like the English language in the world, it's a world standard, and when it comes to the world standard, there's no discussion.
 
 ## Finishing
 ---
