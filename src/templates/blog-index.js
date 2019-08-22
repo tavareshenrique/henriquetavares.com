@@ -99,7 +99,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             spoiler
-            updateDate
+            updateDate(formatString: "MMMM DD, YYYY")
           }
         }
       }

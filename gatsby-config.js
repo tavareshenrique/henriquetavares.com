@@ -2,7 +2,7 @@ const cfg = {
   siteMetadata: {
     title: 'Henrique Tavares',
     author: 'Henrique Tavares',
-    description: 'my life code.',
+    description: 'my life in code.',
     siteUrl: 'https://henriquetavares.com',
     social: {
       twitter: '@ihenrits',
