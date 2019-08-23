@@ -52,7 +52,7 @@ if (__DEV__) {
   tron.clear();
 }
 ```
-**Obs.:** Aviso aos amigos do Android, se por acaso, as informações do seu projeto não estiver aparecendo no seu Reactotron do Desktop, adicione o ip do seu emulador, ou celular, no `Reactotron.configure()`, ficando dessa maneira:
+**Obs.:** Aviso aos amigos do Android, se por acaso, as informações do seu projeto não estiver aparecendo no seu Reactotron do Desktop, adicione o ip do seu computador no `Reactotron.configure()`, ficando dessa maneira:
 
 ```jsx{4}
 import Reactotron from 'reactotron-react-native';
@@ -108,7 +108,7 @@ Como o próprio nome já diz, é uma maneira fácil de trabalhar com Icone no Re
 > **Passo 1**: Instalando:
 
 ```jsx
-react-native link react-native-vector-icons
+yarn add react-native-vector-icons
 ```
 
 > **Passo 2**: Fazendo o Link:
