@@ -12,7 +12,7 @@ Hoje eu quero mostrar as minhas principais configurações básicas que uso ao i
 ## ESLint e Prettier
 ---
 
-Pra começar, vamos com eles, os nossos amiguinhos ESLint e Prettier que você já viu aqui no blog, então é só seguir os passos do tutorial anterior, [Configurando ESlint e o Prettier no ReactJS e React Native](https://henriquetavares.com/pt-br/setting-eslint-on-reactjs/).
+Pra começar, vamos com eles, os nossos amiguinhos ESLint e Prettier que você já viu aqui no blog, então é só seguir os passos do tutorial anterior, [Configurando ESlint e o Prettier no ReactJS e React Native](https://henriquetavares.com/pt-br/setting-eslint-on-reactjs-and-react-native/).
 
 ## Reactotron
 ---
