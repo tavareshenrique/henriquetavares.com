@@ -1,8 +1,8 @@
 # [Henrique Tavares](https://henriquetavares.com/)
 
-My personal blog where I post some things I have learned and am learning in an attempt to try to contribute to the dev community in some way. I affectionately call it my evernote public.
+My personal blog where I post some things I have learned and am learning in an attempt to try to contribute to the dev community in some way. I affectionately call it my public evernote.
 
-Currently I have been studying and working with `JavaScript`, but specifically with the` ReactJS`, `React Native` and` NodeJS` stacks, but I want to talk about everything I´m learning here!
+Currently I have been studying and working with `JavaScript`, being more specific, working on `ReactJS`, `React Native` and `NodeJS` stacks, but I want to talk about everything I am learning and it is not just a technology.
 
 ### Thanks
 ----
