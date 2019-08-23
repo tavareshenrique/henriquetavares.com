@@ -12,7 +12,7 @@ Today I want to show you my main basic settings I use when starting a project in
 ## ESLint e Prettier
 ---
 
-To start with, let's go with them, our little friends ESLint and Prettier that you've seen here on the blog, so just follow the steps of the previous tutorial, [Configuring ESlint and Prettier in ReactJS](https://henriquetavares.com/setting-eslint-on-reactjs).
+To start with, let's go with them, our little friends ESLint and Prettier that you've seen here on the blog, so just follow the steps of the previous tutorial, [Configuring ESlint and Prettier on ReactJS and React Native](https://henriquetavares.com/setting-eslint-on-reactjs-and-react-native/).
 
 ## Reactotron
 ---
