@@ -6,6 +6,7 @@ import '../fonts/fonts-post.css';
 import Bio from '../components/Bio';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
+import Share from '../components/Share';
 import Panel from '../components/Panel';
 import { formatPostDate, formatReadingTime } from '../utils/helpers';
 import { rhythm, scale } from '../utils/typography';
@@ -64,6 +65,18 @@ class BlogPostTemplate extends React.Component {
     const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(
       `https://overreacted.io${enSlug}`
     )}`;
+
+    const { title } = post.frontmatter;
+    const {
+      tags,
+      site: {
+        siteMetadata: { siteUrl, social },
+      },
+    } = this.props.data;
+
+    const { twitter } = social;
+
+    console.log(twitter);
 
     return (
       <Layout
@@ -158,6 +171,36 @@ class BlogPostTemplate extends React.Component {
             </ul>
           </nav>
         </aside>
+        <div className="post-meta">
+          <h3
+            style={{
+              fontFamily: 'Montserrat, sans-serif',
+              marginTop: rhythm(0.25),
+            }}
+          >
+            Compartilhe com os amiguinhos:
+          </h3>
+          <div className="post-meta__share-buttons">
+            <Share
+              socialConfig={{
+                config: {
+                  twitter,
+                  url: `${siteUrl}${slug}`,
+                  title,
+                },
+              }}
+              tags={tags}
+            />
+          </div>
+        </div>
+
+        {/* <div className="blog-post">
+          <h1 className="title is-1">{post.frontmatter.title}</h1>
+          <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
+          <Share
+            
+          />
+        </div> */}
       </Layout>
     );
   }
@@ -171,6 +214,10 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+        siteUrl
+        social {
+          twitter
+        }
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -181,6 +228,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         spoiler
+        tags
       }
       fields {
         slug
