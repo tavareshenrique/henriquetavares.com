@@ -4,12 +4,14 @@ const cfg = {
     author: 'Henrique Tavares',
     description: 'my life in code.',
     siteUrl: 'https://henriquetavares.com',
+    twitterHandle: '@ihenrits',
     social: {
       twitter: '@ihenrits',
     },
   },
   pathPrefix: '/',
   plugins: [
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

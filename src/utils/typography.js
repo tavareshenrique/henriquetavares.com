@@ -1,5 +1,5 @@
 import '../fonts/fonts-shared.css';
-import './global.css';
+import './global.scss';
 
 import Typography from 'typography';
 import Wordpress2016 from 'typography-theme-wordpress-2016';
