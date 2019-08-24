@@ -17,7 +17,6 @@ export function formatPostDate(date, lang) {
   }
 
   date = new Date(date);
-  console.log(date);
   const args = [
     lang,
     { day: 'numeric', month: 'long', year: 'numeric' },

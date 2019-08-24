@@ -1,9 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaRedditAlien,
+  FaWhatsapp,
+} from 'react-icons/fa';
 import {
   FacebookShareButton,
-  GooglePlusShareButton,
   LinkedinShareButton,
   TwitterShareButton,
   WhatsappShareButton,
@@ -19,11 +24,10 @@ const Share = ({ socialConfig, tags }) => (
       className="button is-outlined is-rounded facebook"
     >
       <span className="icon">
-        <FontAwesomeIcon icon={['fab', 'facebook-f']} />
+        <FaFacebookF size={15} color={'#3b5998'} />{' '}
       </span>
       <span className="text">Facebook</span>
     </FacebookShareButton>
-    {console.log(socialConfig)}
     <TwitterShareButton
       url={socialConfig.config.url}
       className="button is-outlined is-rounded twitter"
@@ -32,7 +36,7 @@ const Share = ({ socialConfig, tags }) => (
       hashtags={tags}
     >
       <span className="icon">
-        <FontAwesomeIcon icon={['fab', 'twitter']} />
+        <FaTwitter size={15} color={'#1da1f2'} />{' '}
       </span>
       <span className="text">Twitter</span>
     </TwitterShareButton>
@@ -42,7 +46,7 @@ const Share = ({ socialConfig, tags }) => (
       title={socialConfig.config.title}
     >
       <span className="icon">
-        <FontAwesomeIcon icon={['fab', 'linkedin-in']} />
+        <FaLinkedinIn size={15} color={'#0077b5'} />{' '}
       </span>
       <span className="text">LinkedIn</span>
     </LinkedinShareButton>
@@ -52,7 +56,7 @@ const Share = ({ socialConfig, tags }) => (
       title={socialConfig.config.title}
     >
       <span className="icon">
-        <FontAwesomeIcon icon={['fab', 'reddit-alien']} />
+        <FaRedditAlien size={15} color={'#ff4500'} />{' '}
       </span>
       <span className="text">Reddit</span>
     </RedditShareButton>
@@ -62,7 +66,7 @@ const Share = ({ socialConfig, tags }) => (
       title={socialConfig.config.title}
     >
       <span className="icon">
-        <FontAwesomeIcon icon={['fab', 'whatsapp']} />
+        <FaWhatsapp size={15} color={'#128c7e'} />{' '}
       </span>
       <span className="text">WhatsApp</span>
     </WhatsappShareButton>
@@ -71,7 +75,7 @@ const Share = ({ socialConfig, tags }) => (
 
 Share.propTypes = {
   socialConfig: PropTypes.shape({
-    twitter: PropTypes.string.isRequired,
+    twitter: PropTypes.string,
     config: PropTypes.shape({
       url: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
