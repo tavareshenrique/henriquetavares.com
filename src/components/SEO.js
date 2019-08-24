@@ -82,6 +82,22 @@ function SEO({ meta, image, title, description, slug, lang = 'pt-br' }) {
                         content: metaImage,
                       },
                       {
+                        property: 'og:image:secure_url',
+                        content: metaImage,
+                      },
+                      {
+                        property: 'og:image:type',
+                        content: 'image/png',
+                      },
+                      {
+                        property: 'og:image:width',
+                        content: 400,
+                      },
+                      {
+                        property: 'og:image:height',
+                        content: 300,
+                      },
+                      {
                         name: 'twitter:image',
                         content: metaImage,
                       },
