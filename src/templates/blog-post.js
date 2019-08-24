@@ -178,7 +178,9 @@ class BlogPostTemplate extends React.Component {
               marginTop: rhythm(0.25),
             }}
           >
-            Compartilhe com os amiguinhos:
+            {lang === 'pt-br'
+              ? 'Compartilhe com os seus amiguinhos'
+              : 'Share with your little friends'}
           </h3>
           <div className="post-meta__share-buttons">
             <Share
@@ -193,14 +195,6 @@ class BlogPostTemplate extends React.Component {
             />
           </div>
         </div>
-
-        {/* <div className="blog-post">
-          <h1 className="title is-1">{post.frontmatter.title}</h1>
-          <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
-          <Share
-            
-          />
-        </div> */}
       </Layout>
     );
   }
