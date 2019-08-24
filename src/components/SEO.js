@@ -27,6 +27,7 @@ function SEO({ meta, image, title, description, slug, lang = 'pt-br' }) {
         const { siteMetadata } = data.site;
         const metaDescription = description || siteMetadata.description;
         const metaImage = image; /* ? `${siteMetadata.siteUrl}/${image}` : null; */
+        console.log(metaImage);
         const url = `${siteMetadata.siteUrl}${slug}`;
         console.log(image);
         return (
@@ -82,12 +83,12 @@ function SEO({ meta, image, title, description, slug, lang = 'pt-br' }) {
                         content: metaImage,
                       },
                       {
-                        property: 'og:image:secure_url',
+                        property: 'og:image:url',
                         content: metaImage,
                       },
                       {
                         property: 'og:image:type',
-                        content: 'image/png',
+                        content: 'image/jpeg',
                       },
                       {
                         property: 'og:image:width',

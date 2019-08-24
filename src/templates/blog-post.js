@@ -87,7 +87,7 @@ class BlogPostTemplate extends React.Component {
           description={post.frontmatter.spoiler}
           slug={post.fields.slug}
           image={
-            'https://raw.githubusercontent.com/tavareshenrique/henriquetavares.com/master/src/assets/icon.png'
+            'https://raw.githubusercontent.com/tavareshenrique/henriquetavares.com/master/src/assets/HTLogo.jpg'
           }
         />
         <main>
