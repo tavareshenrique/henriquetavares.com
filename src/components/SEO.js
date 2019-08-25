@@ -26,8 +26,10 @@ function SEO({ meta, image, title, description, slug, lang = 'pt-br' }) {
       render={data => {
         const { siteMetadata } = data.site;
         const metaDescription = description || siteMetadata.description;
-        const metaImage = image ? `${siteMetadata.siteUrl}/${image}` : null;
+        const metaImage = image; /* ? `${siteMetadata.siteUrl}/${image}` : null; */
+        console.log(metaImage);
         const url = `${siteMetadata.siteUrl}${slug}`;
+        console.log(image);
         return (
           <Helmet
             htmlAttributes={{ lang }}
@@ -79,6 +81,22 @@ function SEO({ meta, image, title, description, slug, lang = 'pt-br' }) {
                       {
                         property: 'og:image',
                         content: metaImage,
+                      },
+                      {
+                        property: 'og:image:url',
+                        content: metaImage,
+                      },
+                      {
+                        property: 'og:image:type',
+                        content: 'image/jpeg',
+                      },
+                      {
+                        property: 'og:image:width',
+                        content: 400,
+                      },
+                      {
+                        property: 'og:image:height',
+                        content: 300,
                       },
                       {
                         name: 'twitter:image',

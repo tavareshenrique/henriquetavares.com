@@ -7,7 +7,6 @@ import Bio from '../components/Bio';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import Share from '../components/Share';
-import Panel from '../components/Panel';
 import { formatPostDate, formatReadingTime } from '../utils/helpers';
 import { rhythm, scale } from '../utils/typography';
 import {
@@ -16,8 +15,8 @@ import {
   loadFontsForCode,
 } from '../utils/i18n';
 
-const GITHUB_USERNAME = 'gaearon';
-const GITHUB_REPO_NAME = 'overreacted.io';
+const GITHUB_USERNAME = 'tavareshenrique';
+const GITHUB_REPO_NAME = 'henriquetavares.com';
 const systemFont = `system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif`;
@@ -66,17 +65,14 @@ class BlogPostTemplate extends React.Component {
       `https://overreacted.io${enSlug}`
     )}`;
 
-    const { title } = post.frontmatter;
+    const { title, tags } = post.frontmatter;
     const {
-      tags,
       site: {
         siteMetadata: { siteUrl, social },
       },
     } = this.props.data;
 
     const { twitter } = social;
-
-    console.log(twitter);
 
     return (
       <Layout
@@ -90,6 +86,9 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.spoiler}
           slug={post.fields.slug}
+          image={
+            'https://raw.githubusercontent.com/tavareshenrique/henriquetavares.com/master/src/assets/HTLogo.jpg'
+          }
         />
         <main>
           <article>

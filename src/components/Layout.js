@@ -112,8 +112,6 @@ class Layout extends React.Component {
   render() {
     const { children, lang, location } = this.props;
 
-    console.log(location);
-
     return (
       <div
         style={{
