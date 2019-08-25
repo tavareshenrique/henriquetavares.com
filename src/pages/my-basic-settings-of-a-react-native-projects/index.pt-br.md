@@ -3,7 +3,7 @@ title: Minhas configurações básicas em projetos React Native
 date: '2019-08-18'
 spoiler: Algumas configurações essenciais para os meus projetos em React Native.
 updateDate: '2019-08-22'
-tags: ["Gatsbyjs","JavaScript","Social"]
+tags: ["React Native","JavaScript"]
 ---
 
 ## Faaaaala Codadores!!
