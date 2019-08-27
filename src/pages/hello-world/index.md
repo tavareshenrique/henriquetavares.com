@@ -8,7 +8,7 @@ spoiler: Welcome to my Public Evernote
 
 Welcome to my blog, this is where I will gather some information that I have learned, am learning and working on, trying to try to contribute to the developer community in some way.
 
-## Without PaperW
+## Without Paper
 ---
 ![Paper](./paper.gif)
 
