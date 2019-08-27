@@ -1,7 +1,7 @@
 ---
 title: Configurando ESlint e o Prettier no ReactJS e React Native
 date: '2019-08-11'
-spoiler: Minhas configurações do ESLint e Prettier que uso nos meus projetos em ReactJS e Reac Native
+spoiler: Minhas configurações do ESLint e Prettier que uso nos meus projetos em ReactJS e React Native
 updateDate: '2019-08-22'
 tags: ["ReactJS", "React Native", "JavaScript", "ESLint"]
 ---
