@@ -24,7 +24,8 @@ const Share = ({ socialConfig, tags }) => (
       className="button is-outlined is-rounded facebook"
     >
       <span className="icon">
-        <FaFacebookF size={15} color={'#3b5998'} />{' '}
+        <FaFacebookF size={15} color={'#3b5998'} />
+        {''}
       </span>
       <span className="text">Facebook</span>
     </FacebookShareButton>
@@ -36,7 +37,8 @@ const Share = ({ socialConfig, tags }) => (
       hashtags={tags}
     >
       <span className="icon">
-        <FaTwitter size={15} color={'#1da1f2'} />{' '}
+        <FaTwitter size={15} color={'#1da1f2'} />
+        {''}
       </span>
       <span className="text">Twitter</span>
     </TwitterShareButton>
@@ -46,7 +48,8 @@ const Share = ({ socialConfig, tags }) => (
       title={socialConfig.config.title}
     >
       <span className="icon">
-        <FaLinkedinIn size={15} color={'#0077b5'} />{' '}
+        <FaLinkedinIn size={15} color={'#0077b5'} />
+        {''}
       </span>
       <span className="text">LinkedIn</span>
     </LinkedinShareButton>
@@ -56,7 +59,8 @@ const Share = ({ socialConfig, tags }) => (
       title={socialConfig.config.title}
     >
       <span className="icon">
-        <FaRedditAlien size={15} color={'#ff4500'} />{' '}
+        <FaRedditAlien size={15} color={'#ff4500'} />
+        {''}
       </span>
       <span className="text">Reddit</span>
     </RedditShareButton>
@@ -66,7 +70,8 @@ const Share = ({ socialConfig, tags }) => (
       title={socialConfig.config.title}
     >
       <span className="icon">
-        <FaWhatsapp size={15} color={'#128c7e'} />{' '}
+        <FaWhatsapp size={15} color={'#128c7e'} />
+        {''}
       </span>
       <span className="text">WhatsApp</span>
     </WhatsappShareButton>

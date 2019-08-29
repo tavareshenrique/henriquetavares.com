@@ -12,7 +12,13 @@ $brand-colors: (
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  @media (max-width: 540px) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 
   .button {
     border-radius: 290486px;
@@ -22,6 +28,7 @@ $brand-colors: (
     background-color: #282c35;
     border-width: 1px;
     cursor: pointer;
+    display: flex;
     justify-content: center;
     padding: calc(0.375em - 1px) 0.75em;
     text-align: center;
@@ -42,7 +49,17 @@ $brand-colors: (
             color: #fff !important;
           }
         }
-      }
+      }   
     }
-  }
+
+ 
+    
+    span {
+      display: flex;
+      flex: 1;
+      margin-right: 4px;
+      justify-content: center;
+      align-items: center;
+    }
+  } 
 }
