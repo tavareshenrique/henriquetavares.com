@@ -27,9 +27,7 @@ function SEO({ meta, image, title, description, slug, lang = 'pt-br' }) {
         const { siteMetadata } = data.site;
         const metaDescription = description || siteMetadata.description;
         const metaImage = image; /* ? `${siteMetadata.siteUrl}/${image}` : null; */
-        console.log(metaImage);
         const url = `${siteMetadata.siteUrl}${slug}`;
-        console.log(image);
         return (
           <Helmet
             htmlAttributes={{ lang }}
