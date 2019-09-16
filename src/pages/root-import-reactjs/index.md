@@ -2,6 +2,7 @@
 title: Using Babel Root Import in ReactJS
 date: '2019-09-16'
 spoiler: How to facilitate imports into your ReactJS projects.
+tags: ["ReactJS","JavaScript", "Babel", "ESLint"]
 ---
 
 ## Heeeeeey Codeeers!!
