@@ -4,7 +4,7 @@ date: '2019-08-10'
 spoiler: Seja bem vindo ao meu Evernote Público
 ---
 
-## Faaaaala Codadores!!
+## Faaaaala Codeeeeers!!
 
 Bem-vindo ao meu blog, é aqui onde eu irei reunir umas informações quais aprendi, estou aprendendo e trabalhando, na tentativa de tentar contribuir com a comunidade de desenvolvedores de alguma forma.
 

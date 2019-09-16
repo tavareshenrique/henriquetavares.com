@@ -6,7 +6,7 @@ updateDate: '2019-08-22'
 tags: ["ReactJS", "React Native", "JavaScript", "ESLint"]
 ---
 
-## Faaaaala Codadores!!
+## Faaaaala Codeeeeers!!
 
 *__Obs.: Essas configurações foram testadas somente no VSCode.__*
 
@@ -214,6 +214,6 @@ O style guide do Airbnb é um dos mais famosos do mundo, ele é usado e apoiado 
 
 Acho então que ficou claro da importância de um linter no seu código, correto?! E apesar dos passos serem longos para realizar as configurações, acaba sendo um processo bem fácil e tranquilo!
 
-Então, codadores, é isso! Até uma próxima!
+Então, coders, é isso! Até uma próxima!
 
 ![think-different](./think.gif)

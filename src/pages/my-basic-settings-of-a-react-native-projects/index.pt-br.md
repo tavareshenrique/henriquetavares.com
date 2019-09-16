@@ -6,7 +6,7 @@ updateDate: '2019-08-22'
 tags: ["React Native","JavaScript"]
 ---
 
-## Faaaaala Codadores!!
+## Faaaaala Codeeeeers!!
 
 Hoje eu quero mostrar as minhas principais configurações básicas que uso ao iniciar um projeto em React Native do zero.
 
@@ -153,7 +153,7 @@ react-native link @react-native-community/async-storage
 ```
 ## Finalizando
 ---
-Então Codadores, é isso, na medida que eu for aumentando essa lista eu vou adicionando aqui, e em breve pretendo adicionar a parte do Redux aqui, mais a organização das minhas pastas. 
+Então coders, é isso, na medida que eu for aumentando essa lista eu vou adicionando aqui, e em breve pretendo adicionar a parte do Redux aqui, mais a organização das minhas pastas. 
 
 Mas espero que isso tudo ajude de alguma forma, até uma próxima! 
 
