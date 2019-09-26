@@ -2,6 +2,7 @@
 title: Using Babel Root Import in ReactJS
 date: '2019-09-16'
 spoiler: How to facilitate imports into your ReactJS projects.
+updateDate: '2019-09-26'
 tags: ["ReactJS","JavaScript", "Babel", "ESLint"]
 ---
 
@@ -77,13 +78,15 @@ yarn add eslint-import-resolver-babel-plugin-root-import -D
 ---
 > **Step 4**: Now, in order for our root folder, the **src** we referenced there in step 2, to be interpreted as a **"~"**, let's create a file called: **jsconfig.json** and put the code below inside it:
 
-```jsx
-"compilerOptions": {
+```json
+{
+  "compilerOptions": {
     "baseUrl": "src",
     "paths": {
       "~/*": ["*"]
     }
   }
+}
 ```
 
 ---

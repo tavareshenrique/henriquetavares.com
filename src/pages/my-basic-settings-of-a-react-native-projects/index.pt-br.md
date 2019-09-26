@@ -2,7 +2,7 @@
 title: Minhas configurações básicas em projetos React Native
 date: '2019-08-18'
 spoiler: Algumas configurações essenciais para os meus projetos em React Native.
-updateDate: '2019-08-22'
+updateDate: '2019-09-26'
 tags: ["React Native","JavaScript"]
 ---
 
@@ -22,10 +22,16 @@ Se você não sabe o que é o Reactotron, ele é usado para inspecionar códigos
 
 Tá, agora vamos codificar:
 
-> **Passo 1**: Pra começar, adicione as dependências:
+> **Passo 1**: Pra começar, adicione as dependências do Reactotron, isso inclui não só o próprio, mas as dependências do Reactotron com o Redux e Redux Saga. Então certifique de ter o Redux e o Redux Saga instalado, caso não tenha, instale eles antes dessa forma:
 
 ```jsx
-yarn add reactotron-react-native
+yarn add redux redux-saga react-redux
+```
+
+Agora sim, as dependências do Reacotron + Redux + Redux Saga:
+
+```jsx
+yarn add reactotron-react-native reactotron-redux reactotron-redux-saga
 ```
 
 > **Passo 2**: Crie uma pasta `config` dentro da pasta `src` do seu projeto;
@@ -42,15 +48,19 @@ seu-projeto-rn
 
 ```jsx
 import Reactotron from 'reactotron-react-native';
+import { reactotronRedux } from 'reactotron-redux';
+import reactotronSaga from 'reactotron-redux-saga';
 
 if (__DEV__) {
   const tron = Reactotron.configure()
     .useReactNative()
+    .use(reactotronRedux())
+    .use(reactotronSaga())
     .connect();
 
-  console.tron = tron;
-
   tron.clear();
+
+  console.tron = tron;
 }
 ```
 **Obs.:** Aviso aos amigos do Android, se por acaso, as informações do seu projeto não estiver aparecendo no seu Reactotron do Desktop, adicione o ip do seu computador no `Reactotron.configure()`, ficando dessa maneira:
@@ -61,6 +71,8 @@ import Reactotron from 'reactotron-react-native';
 if (__DEV__) {
   const tron = Reactotron.configure({ host: 'seu-ip' })
     .useReactNative()
+    .use(reactotronRedux())
+    .use(reactotronSaga())
     .connect();
 
   console.tron = tron;
@@ -68,6 +80,26 @@ if (__DEV__) {
   tron.clear();
 }
 ```
+
+> **Passo 5**: Importe o ReactotronConfig no `index` do projeto, dessa forma:
+
+```jsx{4}
+import React from 'react';
+import { StatusBar } from 'react-native';
+
+import './config/ReactotronConfig';
+
+import Routes from './routes';
+
+export default function App() {
+  return (
+      <Routes />
+  );
+}
+
+```
+
+**Obs.:** Lembre de importar ele antes de **TODAS** as importações que não sejam do React.
 
 ## React Native Gesture Handler
 ---

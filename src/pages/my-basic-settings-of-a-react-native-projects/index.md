@@ -2,7 +2,7 @@
 title: My basic settings in React Native projects
 date: '2019-08-18'
 spoiler: Some essential settings for my React Native projects.
-updateDate: '2019-08-22'
+updateDate: '2019-09-26'
 tags: ["React Native","JavaScript"]
 ---
 
@@ -22,10 +22,16 @@ If you don't know what Reactotron is, it's used to inspect code in ReactJS and R
 
 Okay, now let's to code:
 
-> **Step 1**: To get started, add the dependencies:
+> **Step 1**: To start with, add the Reactotron dependencies, this includes not only Reactotron itself, but the Reactotron dependencies with Redux and Redux Saga. So make sure you have Redux and Redux Saga installed, if not, install them first like this:
 
 ```jsx
 yarn add reactotron-react-native
+```
+
+Now the Reacotron + Redux + Redux Saga dependencies:
+
+```jsx
+yarn add reactotron-react-native reactotron-redux reactotron-redux-saga
 ```
 
 > **Step 2**: Create a `config` folder inside the` src` folder of your project;
@@ -68,6 +74,26 @@ if (__DEV__) {
   tron.clear();
 }
 ```
+
+> **Step 5**: Import ReactotronConfig into the project's index:
+
+```jsx{4}
+import React from 'react';
+import { StatusBar } from 'react-native';
+
+import './config/ReactotronConfig';
+
+import Routes from './routes';
+
+export default function App() {
+  return (
+      <Routes />
+  );
+}
+
+```
+
+**Note:** Remember to import it before **ALL** non-React imports.
 
 ## React Native Gesture Handler
 ---
