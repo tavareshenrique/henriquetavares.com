@@ -91,7 +91,7 @@ Pensando nos componentes do React ela deixa alguma dicas de ferramentas:
 
 **React DevTools:** Para verificar o que tem que atualizar no virtual-DOM;
 
-**Highlight Updated options:** Verificando renders desnecessários
+**Highlight Updated Options:** Verificando renders desnecessários
 
 Também recomenda isolar regiões de updates frequentes, como exemplo, um cronômetro, e sempre que possível usar PureComponet's ou React.Memo.
 
@@ -110,7 +110,7 @@ Vou passar uma visão rápida sobre cada uma dessas perguntinhas respondida por 
 
 **Why TypeScript?** O TypeScript foi um dos assuntos que mais me chamou a atenção na React Conf Brasil 2019, muita gente vem adotando o TypeScript em novos projetos ao invés do Javascript. Tudo isso se deve ao fato de que o TypeScript te passa mais segurança,e foi um dos motivos de estar na stack do João, e lá eu tive certeza que já passou da hora pra mim começar a me aprofundar em TypeScript.
 
-**Why GraphQL?** Outra tecnologia que me chamou muita atenção durante a React Conf Brasil 2019 junto ao TypeScript foi o GraphQL. Não só novos projetos estão adotando como projetos antigos estão migrando, a frase mais falada lá foi que "O GraphQL chegou pra ficar", então não preciso dizer mais nada.
+**Why GraphQL?** Outra tecnologia que me chamou muita atenção durante a React Conf Brasil 2019 junto ao TypeScript foi o GraphQL não só novos projetos estão adotando como projetos antigos estão migrando, a frase mais falada lá foi que “O GraphQL chegou pra ficar”, então não preciso dizer mais nada. O João ressaltou que o REST foi uma evolução do SOAP e GraphQL uma evolução do REST que vei para ficar.
 
 **Why Jest?** O Jest foi uma das ferramentas de teste mais mencionada pela maioria dos palestrantes, eu já costumo usar o Jest mesmo, e só me deu mais certeza que estou no caminho certo.
 
@@ -138,26 +138,26 @@ Uma vez eu ouvi uma frase que dizia: **"Para você ser um programador sênior, v
 
 Bom, ele destaca que o Enzyme pode:
 
-* navegar na árvore componentes;
-* fazer seleções (seletores CSS, nome de componente...);
-* acessar props e state;
-* executar métodos;
+    * navegar na árvore componentes;
+    * fazer seleções (seletores CSS, nome de componente...);
+    * acessar props e state;
+    * executar métodos;
 
 E diz as coisas que o testing Library NÃO faz:
 
-* Shallow rendering shallow()
-* Static rendering render()
-* Navegação na árvore de componentes
-* Obter instância de componente
-* Acessar e setar props
-* Acessar e setar state
+    * Shallow rendering shallow()
+    * Static rendering render()
+    * Navegação na árvore de componentes
+    * Obter instância de componente
+    * Acessar e setar props
+    * Acessar e setar state
 
 "Tudo isso são coisas que o usuário final não pode fazer, entao seu teste também não deveria fazer"
 
-Ele vai mais afundo e deixa a caracteristica de cada um explicita:
+Ele vai mais afundo e deixa a característica de cada um explicita:
 
 * Enzyme
-  *  Baseia-se no retorno do componente
+   *  Baseia-se no retorno do componente
   * Facilita a navegação na árvore de componentes
   * Simula interações
   * Testa implementação
@@ -183,7 +183,7 @@ O ReasonML nada mais é do que a nova linguagem de programação do...Facebook.
 
 Pra resumir bem, mas bem mesmo, o ReasonML é linguagem de programação objeto-funcional, é uma nova sintaxe, tipo C, para a linguagem de programação OCaml. Essa nova sintaxe tem como foco, facilitar a interoperabilidade com JavaScript e a adoção de programadores JavaScript. Além disso, ele remove idiossincrasias da sintaxe do OCaml.
 
-Gabriel deixou bem claro na apresentação que a IDE que você usa impede que você compile o código do ReasonML com erro, já vi isso antes em Delphi heim KKKKKK
+Gabriel deixou bem claro na apresentação que é praticamente impossível compilar um código com erro utilizando o ReasonML, já vi isso antes em Delphi heim KKKKKK
 
 Brincadeiras à parte, e então, por que ela foi tão polêmica? 
 
@@ -214,6 +214,8 @@ Além do mais, foi anunciado também o Gatsby Preview que ainda está em beta.
 
 # Finalizando
 Bom, Coders, é isso, eu poderia falar muito mais, mas acho que o principal eu trouxe aqui, assim espero. Foi uma experiência única, e espero voltar ano que vem para saber o que de novo vêm por aí.
+
+Queria deixar meus agradecimentos ao meu amigo [Elan](https://github.com/elanfraga) por contribuir e me ajudar a lembrar alguns pontos.
 
 Abraços e até mais!
 
