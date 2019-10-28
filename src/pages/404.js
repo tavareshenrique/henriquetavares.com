@@ -9,7 +9,7 @@ class NotFoundPage extends React.Component {
           <h1>Not Found</h1>
           <p>Hey Coder, you're lost?</p>
           <iframe
-            width="360"
+            width={window.innerWidth - 1000}
             height="315"
             src="https://www.youtube.com/embed/WpqUXd8XPmo"
             frameborder="0"
