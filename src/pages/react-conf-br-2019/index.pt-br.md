@@ -23,7 +23,7 @@ O [Andrei Calazans](https://twitter.com/andrei_calazans) que é um cara super co
 
 A talk não tinha o intuito de dizer qual era o melhor, e sim, quais as vantagens de cada um dependendo do projeto que você esteja desenvolvendo. É claro que o mercado para o React Native está muito mais agitado, além do fato de se usar Javascript, que é uma das linguagens mais utilizadas atualmente pelos programadores, é possível reutilizar o mesmo código que você desenvolveu em React para um aplicação web, com algumas pequenas modificações, obviamente, para desenvolver o mobile.
 
-Mas o Flutter não fica para trás, depois que o Nubank resolveu aderi-lo, ele deu uma crescida enorme no mercado brasileiro. Existe grandes vantagens dele em cima dos apps feitos em React Native, e vice-versa, então, como o André deixou bem claro, é questão de saber qual o intuito do seu projeto, para assim então você decidir a tecnologia que irá usar, mas sempre consciente que independente da escolha que seja feita, você não ficará para trás.
+Mas o Flutter não fica para trás, depois que o Nubank resolveu aderir o Flutter, ele deu uma crescida enorme no mercado brasileiro. Existem grandes vantagens dele em cima dos apps feitos em React Native, e vice-versa, então, como o André deixou bem claro, é questão de saber qual o intuito do seu projeto, para assim então você decidir a tecnologia que irá usar, mas sempre consciente que independente da escolha que seja feita, você não ficará para trás.
 
 Particularmente, durante a talk, eu entendi que por questões de desempenho, o Flutter está um pouco, mas bem pouco, a frente do React Native, mas a comunidade do React Native sabe disso, e estão trabalhando para melhorar cada vez mais essa questão.
 
@@ -34,7 +34,7 @@ Performance com React foi uma talk muuuito interessante apresentado pela Larissa
 
 Ela começa questionando, **"Teu sistema perfoma bem?"**
 
-Mas dentro dessa pergunta, existe outras perguntas...
+Mas dentro dessa pergunta, existem outras perguntas...
 
 ![What](./what.gif)
 
@@ -104,7 +104,7 @@ Foi uma talk bem interessante também apresentada pelo [João Marins](https://tw
 
 Vou passar uma visão rápida sobre cada uma dessas perguntinhas respondida por ele e com alguns pontos meus.
 
-**Why Monorepo?** Eu não sou expert em Monorepo, na verdade, preciso me aprofundar muito, não sou muito conceituado com o tema, mas o João explica que eles resolveram adotar o Monorepo por questão de praticidade e mais algumas coisinhas que eu prefiro não me aprofundar por causa do que eu já disse lá no inicio.
+**Why Monorepo?** Eu não sou expert em Monorepo, na verdade, preciso me aprofundar muito, não sou muito conceituado com o tema, mas o João explica que eles resolveram adotar o Monorepo por questão de praticidade e mais algumas coisinhas que eu prefiro não me aprofundar por causa do que eu já disse lá no início.
 
 **Why MongoDB?** O MongoDB foi uma decisão pelo fato de ser um banco NoSQL, então decidiram adotar o mesmo. Eu particularmente já trabalhei com MongoDB em projetos particulares, e eu amo, além de ter uma curva de aprendizado grande é muito simples pra quem está começando a mexer e pra quem já mexe.
 
@@ -118,7 +118,7 @@ Vou passar uma visão rápida sobre cada uma dessas perguntinhas respondida por 
 
 **Why Styled-Components?** Um dos grandes amores da minha vida é esse carinha aí. Eu estava até pensando em trazer um post só dele aqui, de tanto que eu gosto. Eu digo para os meus colegas que eu não sei mais mexer com CSS se não usar o Styled-Components, e lá também me deu certeza que ele está muito em alta no mercado, está na stack de grandes desenvolvedores e grandes empresas, como a do João e da Foton.
 
-Essa paletras, só me fez ter certeza que onde eu trabalho, na [Zaal](https://www.zaal.com.br/) e o que eu tenho estudado e aprofundado está no caminho certo, não aderimos ainda a todas as ferramentas da lista, mas mais da metade está em uso, e umas com planos futuros.
+Essa palestras, só me fez ter certeza que onde eu trabalho, na [Zaal](https://www.zaal.com.br/) e o que eu tenho estudado e aprofundado está no caminho certo, não aderimos ainda a todas as ferramentas da lista, mas mais da metade está em uso, e umas com planos futuros.
 
 **Why Relay? && Good Questions to answer && Whats next?**
 
