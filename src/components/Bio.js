@@ -7,9 +7,9 @@ class Bio extends React.Component {
     const { lang } = this.props;
 
     const bioPTBr =
-      'sou um desenvolvedor apaixonado por Javascript, ReactJS, React Native, NodeJS e tudo que envolve essas tecnologias.';
+      'sou um desenvolvedor apaixonado por Javascript e todo o ecossistema que envolve essa tecnologia.';
     const bioEn =
-      "i'm developer in love about Javascript, ReactJS, React Native, NodeJS and every ecosystem around these technologies.";
+      "i'm a developer passionate about Javascript and the entire ecosystem surrounding this technology.";
 
     return (
       <div
