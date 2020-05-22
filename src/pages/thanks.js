@@ -1,7 +1,9 @@
 import React from 'react';
-import Layout from '../components/Layout';
+
 import get from 'lodash/get';
 import { graphql } from 'gatsby';
+
+import Layout from '../components/Layout';
 
 class Thanks extends React.Component {
   render() {
