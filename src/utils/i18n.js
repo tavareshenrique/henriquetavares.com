@@ -9,10 +9,10 @@ import { supportedLanguages } from './../../i18n';
 // https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry
 // https://discuss.httparchive.org/t/what-are-the-invalid-uses-of-the-lang-attribute/1022
 
-export const codeToLanguage = code =>
+export const codeToLanguage = (code) =>
   supportedLanguages[code].replace(/ /g, ' ' /* nbsp */);
 
-export const loadFontsForCode = code => {
+export const loadFontsForCode = (code) => {
   switch (code) {
     case 'ru':
     case 'bg':
@@ -64,6 +64,6 @@ export const loadFontsForCode = code => {
 export const createLanguageLink = (slug, lang) => {
   const rawSlug = slug.replace(`${lang}/`, '');
 
-  return targetLang =>
+  return (targetLang) =>
     targetLang === 'pt-br' ? rawSlug : `${targetLang}${rawSlug}`;
 };

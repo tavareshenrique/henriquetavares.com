@@ -36,7 +36,7 @@ class BlogPostTemplate extends React.Component {
 
     // Replace original links with translated when available.
     let html = post.html;
-    translatedLinks.forEach(link => {
+    translatedLinks.forEach((link) => {
       // jeez
       function escapeRegExp(str) {
         return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');

@@ -7,9 +7,9 @@ class Bio extends React.Component {
     const { lang } = this.props;
 
     const bioPTBr =
-      'sou um desenvolvedor apaixonado por Javascript e todo o ecossistema que envolve essa tecnologia.';
+      'sou um desenvolvedor apaixonado por Javascript e por todo o ecossistema em torno desta tecnologia, com foco em ReactJS, React Native e NodeJS.';
     const bioEn =
-      "i'm a developer in love about Javascript and the entire ecosystem surrounding this technology.";
+      "i'm a developer in love about Javascript and the entire ecosystem surrounding this technology, focusing on ReactJS, React Native and NodeJS.";
 
     return (
       <div
@@ -20,7 +20,7 @@ class Bio extends React.Component {
       >
         <img
           src={profilePic}
-          alt={`Henrique Tavares`}
+          alt="Henrique Tavares"
           style={{
             marginRight: rhythm(1 / 2),
             marginBottom: 0,
