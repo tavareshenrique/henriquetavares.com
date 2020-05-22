@@ -4,8 +4,6 @@ import Toggle from './Toggle';
 import { Helmet } from 'react-helmet';
 
 import { rhythm, scale } from '../utils/typography';
-import sun from '../assets/sun.png';
-import moon from '../assets/moon.png';
 import brazil from '../assets/brazil.png';
 import usa from '../assets/usa.png';
 
