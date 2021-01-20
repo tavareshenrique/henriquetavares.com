@@ -35,16 +35,16 @@ class BlogPostTemplate extends React.Component {
     const lang = post.fields.langKey;
 
     // Replace original links with translated when available.
-    let html = post.html;
+    let { html } = post;
     translatedLinks.forEach((link) => {
       // jeez
       function escapeRegExp(str) {
         return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       }
-      let translatedLink = '/' + lang + link;
+      const translatedLink = `/${lang}${link}`;
       html = html.replace(
-        new RegExp('"' + escapeRegExp(link) + '"', 'g'),
-        '"' + translatedLink + '"'
+        new RegExp(`"${escapeRegExp(link)}"`, 'g'),
+        `"${translatedLink}"`
       );
     });
 
@@ -60,7 +60,7 @@ class BlogPostTemplate extends React.Component {
     const editUrl = `https://github.com/${GITHUB_USERNAME}/${GITHUB_REPO_NAME}/edit/master/src/pages/${enSlug.slice(
       1,
       enSlug.length - 1
-    )}/index${lang === 'pt-br' ? '' : '.' + lang}.md`;
+    )}/index${lang === 'pt-br' ? '' : `.${lang}`}.md`;
     const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(
       `https://overreacted.io${enSlug}`
     )}`;
@@ -77,7 +77,7 @@ class BlogPostTemplate extends React.Component {
     return (
       <Layout
         lang={lang}
-        blogPost={true}
+        blogPost
         location={this.props.location}
         title={siteTitle}
       >
@@ -86,9 +86,7 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.spoiler}
           slug={post.fields.slug}
-          image={
-            'https://raw.githubusercontent.com/tavareshenrique/henriquetavares.com/master/src/assets/HTLogo.jpg'
-          }
+          image="https://raw.githubusercontent.com/tavareshenrique/henriquetavares.com/master/src/assets/HTLogo.jpg"
         />
         <main>
           <article>
@@ -133,7 +131,7 @@ class BlogPostTemplate extends React.Component {
                 textDecoration: 'none',
                 color: 'var(--pink)',
               }}
-              to={'/'}
+              to="/"
             >
               {lang === 'pt-br' ? 'Quem sou eu?' : 'About me'}
             </Link>
@@ -178,8 +176,8 @@ class BlogPostTemplate extends React.Component {
             }}
           >
             {lang === 'pt-br'
-              ? 'Compartilhe com os seus amiguinhos'
-              : 'Share with your little friends'}
+              ? "Compartilhe com outros dev's"
+              : 'Share with other coders.'}
           </h3>
           <div className="post-meta__share-buttons">
             <Share
