@@ -45,11 +45,11 @@ Bora codar!
 
 ![facil](./facil.gif)
 
-**🎙️ Observação:** Foi necessário declarar **"runtimeExecutable"**, porque como eu disse antes, o Microsft Edge que utilizo é a versão **"dev"**. Quando a Micrsoft lançar a versão oficial para Linux, ou se você já usar a versão oficial no Windows ou MacOS, você **NÃO VAI PRECISAR** deste **"runtimeExecutable"**.
+**🎙️ Observação:** Foi necessário declarar **"runtimeExecutable"**, porque como eu disse antes, o Microsft Edge que utilizo é a versão **"dev"**. Quando a Micrsoft lançar a versão oficial para Linux, ou se você já usa a versão oficial no Windows ou MacOS, você **NÃO VAI PRECISAR** deste **"runtimeExecutable"**.
 
 ## Finalizando
 ---
-É isso, espero que ajude, demorei um pouco para chegar a esse resultado final. Lembrando, fiz esse processo no Ubuntu Linux usando a versão "dev" do Microsoft Edge.
+É isso, espero que ajude, demorei um pouco para chegar nesse resultado final. Lembrando, fiz esse processo no Ubuntu Linux usando a versão "dev" do Microsoft Edge.
 
 **Até a próxima!**
 
