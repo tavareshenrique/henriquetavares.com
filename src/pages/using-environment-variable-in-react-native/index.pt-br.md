@@ -2,6 +2,7 @@
 title: Utilizando .ENV no React Native
 date: '2020-01-08'
 spoiler: Saiba como utilizar variável de ambiente no React Native.
+updateDate: '2021-03-13'
 tags: ["React Native", "Env", "Variável de Ambiente", "JavaScript"]
 ---
 
@@ -124,6 +125,14 @@ export default function App() {
    return <Text>{`essa é minha variável ambiente: ${TESTE_KEY}`}</Text>
 }
 ```
+
+## Dica
+
+---
+
+Você dev React Native, sabe quais habilidades você precisa ter para ser um Dev React Native? Recomendo a leitura do post da **g2i**, eles abordaram muito bem o assunto.
+
+[Hiring a React Native Developer: What Should You Look For?](https://www.g2i.co/blog/hiring-a-react-native-developer)
 
 ## Finalizando
 ---

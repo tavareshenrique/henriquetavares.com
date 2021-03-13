@@ -199,6 +199,11 @@ Well, Coders, that's it, I could talk a lot more, but I think the main one I bro
 
 I would like to thank my friend [Elan](https://github.com/elanfraga) for contributing and helping me to remember some points.
 
+I would like to recommend reading about React Conf 2018 very interesting from the g2i team.
+
+[Summary of React Conf Brazil — 2018](https://www.g2i.co/blog/react-conf-brazil-2018)
+[What I learned at ReasonConf 2018](https://www.g2i.co/blog/what-i-learned-at-reasonconf-2018)
+
 See you later!
 
 ![Think Different](./think.gif)

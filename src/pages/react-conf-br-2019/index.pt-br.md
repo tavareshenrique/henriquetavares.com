@@ -2,6 +2,7 @@
 title: React Conf 2019 - Brasil
 date: '2019-10-28'
 spoiler: O que aconteceu na React Conf 2019 - Brasil?
+updateDate: '2021-03-13'
 tags: ["React Native","React", "JavaScript", "ReactConfBR2019"]
 ---
 
@@ -216,6 +217,11 @@ Além do mais, foi anunciado também o Gatsby Preview que ainda está em beta.
 Bom, Coders, é isso, eu poderia falar muito mais, mas acho que o principal eu trouxe aqui, assim espero. Foi uma experiência única, e espero voltar ano que vem para saber o que de novo vêm por aí.
 
 Queria deixar meus agradecimentos ao meu amigo [Elan](https://github.com/elanfraga) por contribuir e me ajudar a lembrar alguns pontos.
+
+Também deixar a recomendação sobre alguns pots bem interessantes sobre a React Conf 2018 do pessoal da g2i, que vale a leitura.
+
+[Summary of React Conf Brazil — 2018](https://www.g2i.co/blog/react-conf-brazil-2018)
+[What I learned at ReasonConf 2018](https://www.g2i.co/blog/what-i-learned-at-reasonconf-2018)
 
 Abraços e até mais!
 

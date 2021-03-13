@@ -2,6 +2,7 @@
 title: Using .ENV in React Native
 date: '2020-01-08'
 spoiler: Learn how to use environment variable in React Native.
+updateDate: '2021-03-13'
 tags: ["React Native", "Env", "Variável de Ambiente", "JavaScript"]
 ---
 
@@ -124,6 +125,14 @@ export default function App() {
    return <Text>{`this is my environment variable: ${TEST_KEY}`}</Text>
 }
 ```
+
+## Can I give you a tip?
+
+---
+
+Are you a React Native developer? Do you know what skills you need to be a respected React Native developer? I recommend reading the **g2i** post, they approached the subject very well.
+
+[Hiring a React Native Developer: What Should You Look For?](https://www.g2i.co/blog/hiring-a-react-native-developer)
 
 ## Finishing
 ---
