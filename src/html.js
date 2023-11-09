@@ -12,6 +12,9 @@ export default class HTML extends React.Component {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
+
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1020878237827031"
+            crossorigin="anonymous"></script>
           {this.props.headComponents}
         </head>
         <body {...this.props.bodyAttributes} className="dark">
