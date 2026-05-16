@@ -1,0 +1,23 @@
+---
+import type { Lang } from '../lib/routes';
+import { indexPath } from '../lib/routes';
+
+interface Props {
+  lang: Lang;
+  /** When omitted, links to the other language’s blog index. */
+  pairedAlternateHref?: string;
+}
+
+const { lang, pairedAlternateHref } = Astro.props;
+const href =
+  pairedAlternateHref ?? indexPath(lang === 'pt-br' ? 'en' : 'pt-br');
+const label = lang === 'pt-br' ? 'English' : 'Português';
+---
+
+<a
+  href={href}
+  data-testid="lang-switch"
+  class="font-sans text-sm font-semibold text-blog-link no-underline shadow-none hover:underline"
+>
+  {label}
+</a>

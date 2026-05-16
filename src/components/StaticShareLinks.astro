@@ -1,0 +1,53 @@
+---
+import type { Lang } from '../lib/routes';
+import { buildStaticShareLinks } from '../lib/share-links';
+
+interface Props {
+  lang: Lang;
+  pagePath: string;
+  title: string;
+}
+
+const { lang, pagePath, title } = Astro.props;
+
+const links = buildStaticShareLinks({ pagePath, shareTitle: title });
+
+const heading =
+  lang === 'pt-br' ? "Compartilhe com outros dev's" : 'Share with other coders.';
+
+const labels: Record<string, { en: string; pt: string }> = {
+  facebook: { en: 'Facebook', pt: 'Facebook' },
+  twitter: { en: 'Twitter', pt: 'Twitter' },
+  linkedin: { en: 'LinkedIn', pt: 'LinkedIn' },
+  reddit: { en: 'Reddit', pt: 'Reddit' },
+  whatsapp: { en: 'WhatsApp', pt: 'WhatsApp' },
+};
+---
+
+<nav data-region="static-share" aria-label={heading}>
+  <h2
+    class="mt-12 mb-4 font-sans text-lg font-semibold tracking-tight text-blog-title"
+  >
+    {heading}
+  </h2>
+  <ul
+    data-testid="static-share-links"
+    class="m-0 flex list-none flex-wrap gap-2 p-0"
+  >
+    {
+      links.map(({ network, href }) => (
+        <li>
+          <a
+            href={href}
+            rel="noopener noreferrer"
+            target="_blank"
+            class="inline-flex rounded-md border border-blog-hr bg-blog-inline-code-bg px-3 py-1.5 font-sans text-sm font-semibold text-blog-link no-underline shadow-none hover:underline"
+            data-share-network={network}
+          >
+            {labels[network]?.[lang === 'pt-br' ? 'pt' : 'en'] ?? network}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

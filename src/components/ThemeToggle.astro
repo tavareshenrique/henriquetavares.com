@@ -1,0 +1,24 @@
+---
+import type { Lang } from '../lib/routes';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const label =
+  lang === 'pt-br' ? 'Alternar tema claro ou escuro' : 'Toggle light or dark theme';
+---
+
+<button
+  type="button"
+  class="font-sans text-sm font-semibold text-blog-link no-underline shadow-none hover:underline"
+  data-testid="theme-toggle"
+  aria-label={label}
+>
+  {lang === 'pt-br' ? 'Tema' : 'Theme'}
+</button>
+
+<script>
+  import '../scripts/theme-toggle.ts';
+</script>

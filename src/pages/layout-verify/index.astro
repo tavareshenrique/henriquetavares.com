@@ -1,0 +1,34 @@
+---
+import PostLayout from '../../layouts/PostLayout.astro';
+---
+
+<PostLayout
+  title="Layout verify fixture — Henrique Tavares"
+  lang="en"
+  route="/layout-verify/"
+  publishDateFormatted="May 16, 2026"
+  tags={['fixture', 'layouts']}
+>
+  <meta slot="head" name="robots" content="noindex, nofollow" />
+  <p>
+    Paragraph with inline <code class="language-text">code</code> and a Prism sample below.
+  </p>
+  <div class="blog-code-frame">
+    <pre class="language-ts"
+      ><code class="language-ts"
+        ><span class="token keyword">const</span> layoutsReady <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span></code
+      ></pre
+    >
+  </div>
+  <p>
+    <img
+      src="https://astro.build/favicon.svg"
+      alt="Astro favicon"
+      width="48"
+      height="48"
+      loading="lazy"
+      decoding="async"
+    />
+  </p>
+  <iframe src="https://example.com" title="Example embed" loading="lazy"></iframe>
+</PostLayout>

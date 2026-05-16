@@ -1,0 +1,32 @@
+---
+import type { Lang } from '../lib/routes';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const bioPTBr =
+  'sou um desenvolvedor apaixonado por Javascript e por todo o ecossistema em torno desta tecnologia, com foco em ReactJS, React Native e NodeJS.';
+const bioEn =
+  "i'm a developer in love about Javascript and the entire ecosystem surrounding this technology, focusing on ReactJS, React Native and NodeJS.";
+---
+
+<div data-region="article-author" class="mt-14 flex flex-row gap-4">
+  <img
+    src="/profile-pic.jpg"
+    alt="Henrique Tavares"
+    width="88"
+    height="88"
+    loading="lazy"
+    decoding="async"
+    class="mt-0 h-[5.25rem] w-[5.25rem] shrink-0 rounded-full object-cover"
+  />
+  <div class="max-w-lg font-serif leading-relaxed">
+    <a href="https://github.com/tavareshenrique" class="text-blog-link no-underline shadow-none hover:underline">
+      Henrique Tavares
+    </a>
+    <p class="mt-2">{lang === 'pt-br' ? bioPTBr : bioEn}</p>
+  </div>
+</div>

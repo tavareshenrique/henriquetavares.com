@@ -1,0 +1,96 @@
+---
+import Bio from '../components/Bio.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import Footer from '../components/Footer.astro';
+import StaticShareLinks from '../components/StaticShareLinks.astro';
+import BaseLayout from './BaseLayout.astro';
+import type { BaseDocumentProps } from '../lib/layout-contract';
+import { assertBaseDocumentProps, SITE_TITLE } from '../lib/layout-contract';
+import { indexPath } from '../lib/routes';
+
+interface Props extends BaseDocumentProps {
+  articleHeading?: string;
+  publishDateFormatted?: string;
+  updateDateFormatted?: string;
+  tags?: string[];
+  share?: {
+    title: string;
+  };
+}
+
+const props = Astro.props;
+assertBaseDocumentProps(props);
+const {
+  lang,
+  articleHeading,
+  publishDateFormatted,
+  updateDateFormatted,
+  tags,
+  title,
+  route,
+  share,
+} = props;
+const heading = articleHeading ?? title;
+const homeHref = indexPath(lang);
+const tagLine = tags?.filter(Boolean).length
+  ? tags.filter(Boolean).join(', ')
+  : '';
+---
+
+<BaseLayout {...props}>
+  <slot name="head" slot="head" />
+  <div slot="header-title">
+    <h3
+      class="my-0 max-h-[42px] font-sans text-2xl font-black leading-[2.625rem] tracking-tight"
+    >
+      <a href={homeHref} class="text-blog-link no-underline shadow-none"
+        >{SITE_TITLE}</a
+      >
+    </h3>
+  </div>
+  <div slot="header-actions" class="flex shrink-0 items-center gap-3">
+    <ThemeToggle lang={lang} />
+    <slot name="header-actions" />
+  </div>
+  <article class="pb-12">
+    <header data-region="article-heading">
+      <h1
+        class="font-sans text-[2.25rem] font-black leading-tight text-blog-title md:text-[2.5rem]"
+      >
+        {heading}
+      </h1>
+    </header>
+    <div
+      data-region="article-metadata"
+      class="mt-4 space-y-2 text-[0.95rem] opacity-90"
+    >
+      {
+        publishDateFormatted ? (
+          <p class="my-0">
+            {lang === 'pt-br' ? 'Publicado em ' : 'Published '}
+            <time>{publishDateFormatted}</time>
+          </p>
+        ) : null
+      }
+      {
+        updateDateFormatted ? (
+          <p class="my-0">
+            {lang === 'pt-br' ? 'Atualizado em ' : 'Updated '}
+            <time>{updateDateFormatted}</time>
+          </p>
+        ) : null
+      }
+      {tagLine ? <p class="my-0">{tagLine}</p> : null}
+    </div>
+    <div data-region="article-body" class="markdown-body mt-10">
+      <slot />
+    </div>
+    {
+      share ? (
+        <StaticShareLinks lang={lang} pagePath={route} title={share.title} />
+      ) : null
+    }
+    <Bio lang={lang} />
+    <Footer lang={lang} />
+  </article>
+</BaseLayout>

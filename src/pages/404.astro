@@ -1,0 +1,25 @@
+---
+import LangSwitch from '../components/LangSwitch.astro';
+import Panel from '../components/Panel.astro';
+import BlogLayout from '../layouts/BlogLayout.astro';
+import { SITE_TITLE } from '../lib/layout-contract';
+
+const lang = 'pt-br';
+---
+
+<BlogLayout
+  title={`Página não encontrada — ${SITE_TITLE}`}
+  lang={lang}
+  route="/404/"
+>
+  <LangSwitch slot="header-actions" lang={lang} />
+  <Panel>
+    Esta página não existe ou foi movida. Tente voltar para a{' '}
+    <a href="/" class="text-blog-link no-underline hover:underline">página inicial</a>
+    .
+  </Panel>
+  <p class="mt-6 font-serif text-[0.95rem] opacity-90">
+    This page does not exist or has moved. Try the{' '}
+    <a href="/en/" class="text-blog-link no-underline hover:underline">English home</a>.
+  </p>
+</BlogLayout>

@@ -1,1 +1,23 @@
+node_modules
+dist
+.astro
+public
+coverage
+yarn.lock
+yarn.*.lock
+package-lock.json
+pnpm-lock.yaml
+references
+
+# Generated / third-party font CSS bundles.
+src/fonts/
+
+# Keep authored Markdown out of repo-wide formatting churn (posts live under src/content/posts).
 *.md
+src/pages/
+
+# Legacy Gatsby reference surfaces (reformat with the migration tasks that replace them).
+src/components/
+src/templates/
+src/utils/
+src/html.js

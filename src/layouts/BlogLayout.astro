@@ -1,0 +1,32 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import type { BaseDocumentProps } from '../lib/layout-contract';
+import { assertBaseDocumentProps, SITE_TITLE } from '../lib/layout-contract';
+import { indexPath } from '../lib/routes';
+
+interface Props extends BaseDocumentProps {}
+
+const props = Astro.props;
+assertBaseDocumentProps(props);
+const { lang } = props;
+const homeHref = indexPath(lang);
+---
+
+<BaseLayout {...props}>
+  <slot name="head" slot="head" />
+  <div slot="header-title">
+    <h1
+      class="my-0 font-serif text-[1.65rem] font-normal leading-none tracking-tight"
+    >
+      <a href={homeHref} class="text-blog-title no-underline shadow-none"
+        >{SITE_TITLE}</a
+      >
+    </h1>
+  </div>
+  <div slot="header-actions" class="flex shrink-0 items-center gap-3">
+    <ThemeToggle lang={lang} />
+    <slot name="header-actions" />
+  </div>
+  <slot />
+</BaseLayout>

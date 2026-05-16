@@ -1,0 +1,97 @@
+---
+import '../styles/global.css';
+import type { BaseDocumentProps } from '../lib/layout-contract';
+import {
+  assertBaseDocumentProps,
+  LAYOUT_STYLE_MARKER_ATTR,
+  LAYOUT_STYLE_MARKER_VALUE,
+} from '../lib/layout-contract';
+import {
+  THEME_COLOR_DARK,
+  THEME_COLOR_LIGHT,
+  THEME_STORAGE_KEY,
+} from '../lib/theme';
+
+interface Props extends BaseDocumentProps {}
+
+const props = Astro.props;
+assertBaseDocumentProps(props);
+const { title, lang } = props;
+const htmlLang = lang === 'pt-br' ? 'pt-BR' : 'en';
+---
+
+<!doctype html>
+<html
+  lang={htmlLang}
+  {...{ [LAYOUT_STYLE_MARKER_ATTR]: LAYOUT_STYLE_MARKER_VALUE }}
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content={THEME_COLOR_DARK} />
+    <title>{title}</title>
+    <script
+      is:inline
+      define:vars={{
+        THEME_STORAGE_KEY,
+        THEME_COLOR_LIGHT,
+        THEME_COLOR_DARK,
+      }}
+    >
+      (function () {
+        var key = THEME_STORAGE_KEY;
+        var stored = null;
+        try {
+          stored = localStorage.getItem(key);
+        } catch (e) {
+          stored = null;
+        }
+        var systemPrefersLight = false;
+        try {
+          systemPrefersLight = window.matchMedia(
+            '(prefers-color-scheme: light)'
+          ).matches;
+        } catch (e2) {
+          systemPrefersLight = false;
+        }
+        var theme =
+          stored === 'light' || stored === 'dark'
+            ? stored
+            : systemPrefersLight
+              ? 'light'
+              : 'dark';
+        var root = document.documentElement;
+        if (theme === 'light') {
+          root.classList.add('light');
+        } else {
+          root.classList.remove('light');
+        }
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) {
+          meta.setAttribute(
+            'content',
+            theme === 'light' ? THEME_COLOR_LIGHT : THEME_COLOR_DARK
+          );
+        }
+      })();
+    </script>
+    <slot name="head" />
+  </head>
+  <body>
+    <div class="mx-auto max-w-shell px-shell py-header-block">
+      <header
+        class="mb-header-block flex flex-row flex-wrap items-center justify-between gap-4"
+      >
+        <div class="min-w-0 flex-1">
+          <slot name="header-title" />
+        </div>
+        <div class="flex shrink-0 items-center gap-2">
+          <slot name="header-actions">
+            <div class="min-h-[24px] min-w-[40px]" aria-hidden="true"></div>
+          </slot>
+        </div>
+      </header>
+      <slot />
+    </div>
+  </body>
+</html>
