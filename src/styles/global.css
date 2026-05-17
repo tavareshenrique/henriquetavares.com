@@ -87,7 +87,8 @@ pre[class*='language-'] ::selection {
   background: hsla(0, 0%, 100%, 0.15);
 }
 
-:not(pre) > code[class*='language-'] {
+:not(pre) > code[class*='language-'],
+.markdown-body :not(pre) > code {
   border-radius: 0.3em;
   background: var(--blog-inline-code-bg);
   color: var(--blog-inline-code-text);
@@ -335,6 +336,27 @@ pre[data-line] {
 .markdown-body ul,
 .markdown-body ol {
   margin-left: 1.75rem;
+  padding-left: 0.25rem;
+}
+
+.markdown-body ul {
+  list-style-type: disc;
+}
+
+.markdown-body ul ul {
+  list-style-type: circle;
+}
+
+.markdown-body ul ul ul {
+  list-style-type: square;
+}
+
+.markdown-body ol {
+  list-style-type: decimal;
+}
+
+.markdown-body ol ol {
+  list-style-type: lower-alpha;
 }
 
 .markdown-body li > * + * {
@@ -371,4 +393,28 @@ pre[data-line] {
 
 .markdown-body pre:not(:last-child) {
   margin-bottom: 1.75rem;
+}
+
+/* Bare fenced-code blocks from Markdown (no .blog-code-frame wrapper). */
+.markdown-body pre[class*='language-'] {
+  background: var(--blog-code-bg);
+  border-radius: 10px;
+  margin-left: -1.3125rem;
+  margin-right: -1.3125rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 672px) {
+  .markdown-body pre[class*='language-'] {
+    border-radius: 0;
+  }
+}
+
+/* When .blog-code-frame wraps the pre, the frame div already provides the card surface;
+   undo the markdown-body overrides to avoid double background and stacked negative margins. */
+.blog-code-frame pre[class*='language-'] {
+  background: none;
+  border-radius: 0;
+  margin-left: 0;
+  margin-right: 0;
 }

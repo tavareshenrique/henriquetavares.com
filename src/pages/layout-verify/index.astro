@@ -13,6 +13,9 @@ import PostLayout from '../../layouts/PostLayout.astro';
   <p>
     Paragraph with inline <code class="language-text">code</code> and a Prism sample below.
   </p>
+  <p>
+    Classless inline code: <code>~60-120s</code> build time and route <code>/en/</code>.
+  </p>
   <div class="blog-code-frame">
     <pre class="language-ts"
       ><code class="language-ts"
@@ -20,6 +23,22 @@ import PostLayout from '../../layouts/PostLayout.astro';
       ></pre
     >
   </div>
+  <pre class="language-js" data-language="js"><code class="language-js"><span class="token comment">// bare block — no .blog-code-frame wrapper, mirrors real Markdown output</span>
+<span class="token keyword">const</span> migrated <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span></code></pre>
+  <ul>
+    <li>Unordered item one</li>
+    <li>Unordered item two
+      <ul>
+        <li>Nested circle item</li>
+      </ul>
+    </li>
+    <li>Unordered item three</li>
+  </ul>
+  <ol>
+    <li>Ordered item one</li>
+    <li>Ordered item two</li>
+    <li>Ordered item three</li>
+  </ol>
   <p>
     <img
       src="https://astro.build/favicon.svg"
