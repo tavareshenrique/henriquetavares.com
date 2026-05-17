@@ -34,8 +34,10 @@ describe('Task 09: legacy Gatsby runtime stripped from manifests and tree', () =
     expect(offenders).toEqual([]);
   });
 
-  it('keeps production dependencies empty — site is Astro static tooling only', () => {
-    expect(packageJson().dependencies ?? {}).toEqual({});
+  it('keeps production dependencies minimal — only analytics runtime', () => {
+    expect(packageJson().dependencies ?? {}).toEqual({
+      '@vercel/analytics': expect.any(String),
+    });
   });
 
   it('still owns migrated Markdown under src/content/posts', () => {
