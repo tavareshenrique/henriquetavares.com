@@ -66,3 +66,34 @@ describe('BaseLayout stylesheet wiring', () => {
     expect(src).toContain('LAYOUT_STYLE_MARKER_ATTR');
   });
 });
+
+describe('layout header title parity', () => {
+  function extractHeaderTitleBlock(src: string): string {
+    const start = src.indexOf('<div slot="header-title">');
+    expect(start).toBeGreaterThanOrEqual(0);
+    const end = src.indexOf('</div>', start);
+    expect(end).toBeGreaterThan(start);
+    return src.slice(start, end + '</div>'.length);
+  }
+
+  it('keeps the site-title header typography/color tokens aligned', () => {
+    const blogLayoutFile = path.join(
+      repoRoot,
+      'src',
+      'layouts',
+      'BlogLayout.astro'
+    );
+    const postLayoutFile = path.join(
+      repoRoot,
+      'src',
+      'layouts',
+      'PostLayout.astro'
+    );
+    const blogLayoutSrc = readFileSync(blogLayoutFile, 'utf8');
+    const postLayoutSrc = readFileSync(postLayoutFile, 'utf8');
+
+    expect(extractHeaderTitleBlock(blogLayoutSrc)).toBe(
+      extractHeaderTitleBlock(postLayoutSrc)
+    );
+  });
+});

@@ -225,6 +225,16 @@ describe('Astro production build (integration)', () => {
     }
   });
 
+  it('renders homepage bio intro in both locales', () => {
+    const ptIndex = readFileSync(distPathForBlogRoute('/'), 'utf8');
+    expect(ptIndex).toContain('data-region="homepage-intro"');
+    expect(ptIndex).toContain('sou um desenvolvedor apaixonado por Javascript');
+
+    const enIndex = readFileSync(distPathForBlogRoute('/en/'), 'utf8');
+    expect(enIndex).toContain('data-region="homepage-intro"');
+    expect(enIndex).toContain("i'm a developer in love about Javascript");
+  });
+
   it('does not materialize removed newsletter confirmation paths in dist', () => {
     expect(
       existsSync(path.join(repoRoot, 'dist', 'thanks', 'index.html'))

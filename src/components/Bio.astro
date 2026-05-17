@@ -3,19 +3,25 @@ import type { Lang } from '../lib/routes';
 
 interface Props {
   lang: Lang;
+  placement?: 'article' | 'home';
 }
 
-const { lang } = Astro.props;
+const { lang, placement = 'article' } = Astro.props;
 
 const bioPTBr =
   'sou um desenvolvedor apaixonado por Javascript e por todo o ecossistema em torno desta tecnologia, com foco em ReactJS, React Native e NodeJS.';
 const bioEn =
   "i'm a developer in love about Javascript and the entire ecosystem surrounding this technology, focusing on ReactJS, React Native and NodeJS.";
+
+const isHome = placement === 'home';
 ---
 
-<div data-region="article-author" class="mt-14 flex flex-row gap-4">
+<div
+  data-region={isHome ? 'homepage-intro' : 'article-author'}
+  class:list={['flex flex-row gap-4', isHome ? 'mb-10' : 'mt-14']}
+>
   <img
-    src="/profile-pic.jpg"
+    src="/profile-pic.jpeg"
     alt="Henrique Tavares"
     width="88"
     height="88"

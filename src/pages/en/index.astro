@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import Bio from '../../components/Bio.astro';
 import LangSwitch from '../../components/LangSwitch.astro';
 import SeoHead from '../../components/SeoHead.astro';
 import BlogLayout from '../../layouts/BlogLayout.astro';
@@ -28,6 +29,7 @@ const description = siteDescriptionForLang(lang);
     enPath={INDEX_EN_PATH}
   />
   <LangSwitch slot="header-actions" lang={lang} />
+  <Bio lang={lang} placement="home" />
   <ul class="m-0 list-none space-y-12 p-0">
     {
       posts.map((post) => (
