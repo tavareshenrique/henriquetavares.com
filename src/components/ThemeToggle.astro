@@ -1,0 +1,155 @@
+---
+import type { Lang } from '../lib/routes';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const label =
+  lang === 'pt-br' ? 'Alternar tema claro ou escuro' : 'Toggle light or dark theme';
+
+// Determine initial theme state for SSR (defaults to dark)
+const isLight = false;
+---
+
+<button
+  type="button"
+  data-testid="theme-toggle"
+  aria-label={label}
+  aria-checked={isLight ? 'true' : 'false'}
+  role="switch"
+  class="theme-switch"
+>
+  <span class="theme-switch-track">
+    <span class="theme-switch-thumb" data-theme-thumb></span>
+    <span class="theme-switch-endpoint theme-switch-moon" aria-hidden="true">🌙</span>
+    <span class="theme-switch-endpoint theme-switch-sun" aria-hidden="true">☀️</span>
+  </span>
+</button>
+
+<style>
+  .theme-switch {
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.875rem;
+    line-height: 1;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .theme-switch:hover {
+    transform: scale(1.05);
+  }
+
+  .theme-switch:active {
+    transform: scale(0.98);
+  }
+
+  .theme-switch:focus-visible {
+    outline: 2px solid var(--blog-link);
+    outline-offset: 3px;
+    border-radius: 9999px;
+  }
+
+  .theme-switch-track {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 3.25rem;
+    height: 1.75rem;
+    padding: 0.125rem;
+    background-color: var(--blog-bg);
+    border: 1.5px solid var(--blog-link);
+    border-radius: 9999px;
+    overflow: hidden;
+    transition:
+      background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .theme-switch:hover .theme-switch-track {
+    box-shadow: 0 2px 8px rgba(209, 192, 63, 0.25);
+  }
+
+  html.light .theme-switch:hover .theme-switch-track {
+    box-shadow: 0 2px 8px rgba(210, 54, 105, 0.25);
+  }
+
+  .theme-switch-thumb {
+    position: absolute;
+    top: 0.125rem;
+    left: 0.125rem;
+    width: 1.375rem;
+    height: 1.375rem;
+    background-color: var(--blog-link);
+    border-radius: 50%;
+    transition:
+      transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  .theme-switch:hover .theme-switch-thumb {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .theme-switch[aria-checked="true"] .theme-switch-thumb {
+    transform: translateX(1.5rem);
+  }
+
+  .theme-switch-endpoint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.375rem;
+    height: 1.375rem;
+    font-size: 0.875rem;
+    z-index: 0;
+    transition:
+      opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .theme-switch-moon {
+    margin-left: 0.125rem;
+    opacity: 1;
+  }
+
+  .theme-switch-sun {
+    margin-right: 0.125rem;
+    opacity: 0.5;
+  }
+
+  .theme-switch[aria-checked="true"] .theme-switch-moon {
+    opacity: 0.5;
+  }
+
+  .theme-switch[aria-checked="true"] .theme-switch-sun {
+    opacity: 1;
+  }
+
+  /* Subtle bounce animation on endpoints when switching */
+  .theme-switch[aria-checked="true"] .theme-switch-sun {
+    transform: scale(1.1);
+  }
+
+  .theme-switch[aria-checked="false"] .theme-switch-moon {
+    transform: scale(1.1);
+  }
+
+  .theme-switch[aria-checked="true"] .theme-switch-moon,
+  .theme-switch[aria-checked="false"] .theme-switch-sun {
+    transform: scale(1);
+  }
+</style>
+
+<script>
+  import '../scripts/theme-toggle.ts';
+</script>

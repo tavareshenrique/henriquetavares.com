@@ -1,0 +1,14 @@
+{
+  "files.exclude": {
+    "**/.pnpm-store": true,
+    "**/.astro": true,
+    "**/dist": true,
+    "**/node_modules": true
+  },
+  "search.exclude": {
+    "**/.pnpm-store": true,
+    "**/.astro": true,
+    "**/dist": true,
+    "**/node_modules": true
+  }
+}

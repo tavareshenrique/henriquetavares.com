@@ -1,0 +1,62 @@
+---
+import { getCollection } from 'astro:content';
+import Bio from '../components/Bio.astro';
+import LangSwitch from '../components/LangSwitch.astro';
+import SeoHead from '../components/SeoHead.astro';
+import BlogLayout from '../layouts/BlogLayout.astro';
+import { SITE_TITLE } from '../lib/layout-contract';
+import { formatBlogDate } from '../lib/blog-display';
+import { postsForLang, toPostEntry } from '../lib/posts';
+import { INDEX_EN_PATH, INDEX_PT_PATH } from '../lib/routes';
+import { siteDescriptionForLang } from '../lib/site-config';
+
+const lang = 'pt-br';
+const raw = await getCollection('posts');
+const allPosts = raw.map((e) => toPostEntry({ id: e.id, data: e.data }));
+const posts = postsForLang(allPosts, lang);
+const description = siteDescriptionForLang(lang);
+---
+
+<BlogLayout title={SITE_TITLE} lang={lang} route={INDEX_PT_PATH}>
+  <SeoHead
+    slot="head"
+    documentTitle={SITE_TITLE}
+    description={description}
+    canonicalPath={INDEX_PT_PATH}
+    {lang}
+    ogType="website"
+    ptPath={INDEX_PT_PATH}
+    enPath={INDEX_EN_PATH}
+  />
+  <LangSwitch slot="header-actions" lang={lang} />
+  <Bio lang={lang} placement="home" />
+  <ul class="m-0 list-none space-y-12 p-0">
+    {
+      posts.map((post) => (
+        <li>
+          <article class="space-y-2">
+            <h2 class="my-0 font-sans text-2xl font-black leading-snug tracking-tight">
+              <a
+                href={post.route}
+                class="text-blog-title no-underline shadow-none hover:underline"
+              >
+                {post.title}
+              </a>
+            </h2>
+            <p class="my-0 text-[0.95rem] opacity-80">
+              <time datetime={post.date.toISOString()}>
+                {formatBlogDate(post.date, lang)}
+              </time>
+            </p>
+            {post.tags.length ? (
+              <p class="my-0 text-[0.95rem] opacity-90">{post.tags.join(', ')}</p>
+            ) : null}
+            <p class="my-0 font-serif leading-relaxed text-blog-text">
+              {post.spoiler}
+            </p>
+          </article>
+        </li>
+      ))
+    }
+  </ul>
+</BlogLayout>

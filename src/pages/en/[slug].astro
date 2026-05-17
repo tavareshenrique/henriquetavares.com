@@ -1,0 +1,71 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import LangSwitch from '../../components/LangSwitch.astro';
+import SeoHead from '../../components/SeoHead.astro';
+import PostLayout from '../../layouts/PostLayout.astro';
+import { SITE_TITLE } from '../../lib/layout-contract';
+import { formatBlogDate } from '../../lib/blog-display';
+import { postRouteMetadata } from '../../lib/routes';
+import { toPostEntry, type PostEntry } from '../../lib/posts';
+
+interface Props {
+  entry: CollectionEntry<'posts'>;
+  post: PostEntry;
+}
+
+export async function getStaticPaths() {
+  const raw = await getCollection('posts');
+  return raw
+    .map((entry) => {
+      const post = toPostEntry({ id: entry.id, data: entry.data });
+      if (post.lang !== 'en') {
+        return null;
+      }
+      return {
+        params: { slug: post.slug },
+        props: { entry, post },
+      };
+    })
+    .filter((p): p is NonNullable<typeof p> => p !== null);
+}
+
+const { entry, post } = Astro.props;
+const { Content } = await entry.render();
+const routes = postRouteMetadata(post.slug, post.lang);
+const ptContentPath = postRouteMetadata(post.slug, 'pt-br').canonical;
+const enContentPath = postRouteMetadata(post.slug, 'en').canonical;
+const publishDateFormatted = formatBlogDate(post.date, post.lang);
+const updateDateFormatted = post.updateDate
+  ? formatBlogDate(post.updateDate, post.lang)
+  : undefined;
+const documentTitle = `${post.title} — ${SITE_TITLE}`;
+---
+
+<PostLayout
+  title={documentTitle}
+  lang={post.lang}
+  route={post.route}
+  articleHeading={post.title}
+  publishDateFormatted={publishDateFormatted}
+  updateDateFormatted={updateDateFormatted}
+  tags={post.tags}
+  share={{ title: post.title }}
+>
+  <SeoHead
+    slot="head"
+    documentTitle={documentTitle}
+    description={post.spoiler}
+    canonicalPath={routes.canonical}
+    lang={post.lang}
+    ogType="article"
+    ptPath={ptContentPath}
+    enPath={enContentPath}
+  />
+  <LangSwitch
+    slot="header-actions"
+    lang={post.lang}
+    pairedAlternateHref={routes.alternate}
+  />
+  <Content />
+</PostLayout>

@@ -1,0 +1,63 @@
+---
+import type { Lang } from '../lib/routes';
+import { buildBilingualAlternates } from '../lib/seo-alternates';
+import {
+  DEFAULT_OG_IMAGE_PATH,
+  SITE_ORIGIN,
+  SITE_TWITTER_CREATOR,
+  absoluteUrl,
+} from '../lib/site-config';
+
+interface Props {
+  documentTitle: string;
+  description: string;
+  canonicalPath: string;
+  lang: Lang;
+  ogType: 'website' | 'article';
+  /** Portuguese path for this content */
+  ptPath: string;
+  /** English path for this content */
+  enPath: string;
+  ogImagePath?: string;
+}
+
+const {
+  documentTitle,
+  description,
+  canonicalPath,
+  lang,
+  ogType,
+  ptPath,
+  enPath,
+  ogImagePath = DEFAULT_OG_IMAGE_PATH,
+} = Astro.props;
+
+const canonicalUrl = absoluteUrl(SITE_ORIGIN, canonicalPath);
+const alternates = buildBilingualAlternates(SITE_ORIGIN, ptPath, enPath);
+const imageUrl = absoluteUrl(SITE_ORIGIN, ogImagePath);
+const ogLocale = lang === 'pt-br' ? 'pt_BR' : 'en_US';
+const ogLocaleAlternate = lang === 'pt-br' ? 'en_US' : 'pt_BR';
+---
+
+<link rel="canonical" href={canonicalUrl} />
+{
+  alternates.map((a) => (
+    <link rel="alternate" hreflang={a.hreflang} href={a.href} />
+  ))
+}
+
+<meta name="description" content={description} />
+
+<meta property="og:type" content={ogType} />
+<meta property="og:title" content={documentTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:locale" content={ogLocale} />
+<meta property="og:locale:alternate" content={ogLocaleAlternate} />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:creator" content={SITE_TWITTER_CREATOR} />
+<meta name="twitter:title" content={documentTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />

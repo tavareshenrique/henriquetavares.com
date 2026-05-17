@@ -42,6 +42,9 @@ typings/
 # Optional npm cache directory
 .npm
 
+# pnpm store (when store-dir is local to repo)
+.pnpm-store/
+
 # Optional eslint cache
 .eslintcache
 
@@ -57,6 +60,10 @@ typings/
 # gatsby files
 .cache/
 public
+
+# Astro
+dist/
+.astro/
 
 # Mac files
 .DS_Store
