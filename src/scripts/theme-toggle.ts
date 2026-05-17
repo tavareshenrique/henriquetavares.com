@@ -17,15 +17,25 @@ function wireThemeToggle(): void {
     '[data-testid="theme-toggle"]'
   );
   if (!button) return;
+  const toggleButton = button;
 
   const lang = document.documentElement.lang.toLowerCase().startsWith('pt')
     ? 'pt-br'
     : 'en';
 
-  function syncAriaLabel(): void {
+  function syncSwitchState(): void {
     const current = readCurrentThemeFromClass(document.documentElement);
+    const isLight = current === 'light';
+
+    // Update aria-checked for switch semantics
+    toggleButton.setAttribute('aria-checked', isLight ? 'true' : 'false');
+
+    // Update data-theme-state for potential CSS targeting
+    toggleButton.setAttribute('data-theme-state', current);
+
+    // Update aria-label based on what the next click will do
     const next = oppositeTheme(current);
-    button.setAttribute(
+    toggleButton.setAttribute(
       'aria-label',
       next === 'light'
         ? lang === 'pt-br'
@@ -37,16 +47,16 @@ function wireThemeToggle(): void {
     );
   }
 
-  button.addEventListener('click', () => {
+  toggleButton.addEventListener('click', () => {
     const html = document.documentElement;
     const next = oppositeTheme(readCurrentThemeFromClass(html));
     applyThemeClass(html, next);
     safeLocalStorageSetItem(window.localStorage, THEME_STORAGE_KEY, next);
     updateThemeColorMeta(next);
-    syncAriaLabel();
+    syncSwitchState();
   });
 
-  syncAriaLabel();
+  syncSwitchState();
 }
 
 function run(): void {
