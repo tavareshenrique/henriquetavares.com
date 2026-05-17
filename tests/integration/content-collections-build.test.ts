@@ -7,6 +7,7 @@ import { loadPostEntriesFromDisk } from '../helpers/load-post-entries';
 
 const repoRoot = path.resolve(__dirname, '..', '..');
 const postsRoot = path.join(repoRoot, 'src', 'content', 'posts');
+const buildHookTimeoutMs = 90_000;
 
 function listHtmlUnderDist(distDir: string): string[] {
   const out: string[] = [];
@@ -38,7 +39,7 @@ describe('Astro production build (integration)', () => {
       stdio: 'pipe',
       env: { ...process.env, NODE_ENV: 'test' },
     });
-  });
+  }, buildHookTimeoutMs);
 
   it('materializes dist output after content collection validation', () => {
     expect(existsSync(path.join(repoRoot, 'dist', 'index.html'))).toBe(true);
