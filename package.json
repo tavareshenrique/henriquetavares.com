@@ -1,9 +1,29 @@
 {
   "name": "henrique-tavares",
-  "private": true,
-  "description": "Henrique Tavares",
-  "version": "1.0.0",
-  "author": "Henrique Tavares <ihenrits@gmail.com>",
+  "private": false,
+  "description": "Blog pessoal para compartilhar meus conhecimentos e experiências.",
+  "version": "2.0.0",
+  "author": {
+    "name": "Henrique Tavares",
+    "email": "ihenrits@gmail.com",
+    "url": "https://henriquetavares.com"
+  },
+  "homepage": "https://henriquetavares.com",
+  "license": "MIT",
+  "scripts": {
+    "prepare": "husky",
+    "dev": "astro dev",
+    "preview": "astro preview",
+    "build": "astro build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"{astro.config.*,tailwind.config.*,eslint.config.mjs,vitest.config.ts,src/**/*.{astro,ts,tsx,css,scss},src/**/*.json,tooling/**/*.{mjs,js,ts},tests/**/*.{ts,mjs}}\"",
+    "format:check": "prettier --check \"{astro.config.*,tailwind.config.*,eslint.config.mjs,vitest.config.ts,src/**/*.{astro,ts,tsx,css,scss},src/**/*.json,tooling/**/*.{mjs,js,ts},tests/**/*.{ts,mjs}}\"",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "audit:migration": "node --import tsx tooling/migration-audit.ts",
+    "validate": "pnpm lint && pnpm build && pnpm audit:migration"
+  },
   "devDependencies": {
     "@astrojs/tailwind": "^6.0.0",
     "@eslint/js": "^9.24.0",
@@ -28,22 +48,6 @@
     "vitest": "^3.0.0",
     "yaml": "^2.8.0",
     "zod": "^3.25.76"
-  },
-  "homepage": "https://henriquetavares.com",
-  "license": "MIT",
-  "scripts": {
-    "prepare": "husky",
-    "dev": "astro dev",
-    "preview": "astro preview",
-    "build": "astro build",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier --write \"{astro.config.*,tailwind.config.*,eslint.config.mjs,vitest.config.ts,src/**/*.{astro,ts,tsx,css,scss},src/**/*.json,tooling/**/*.{mjs,js,ts},tests/**/*.{ts,mjs}}\"",
-    "format:check": "prettier --check \"{astro.config.*,tailwind.config.*,eslint.config.mjs,vitest.config.ts,src/**/*.{astro,ts,tsx,css,scss},src/**/*.json,tooling/**/*.{mjs,js,ts},tests/**/*.{ts,mjs}}\"",
-    "test": "vitest run",
-    "test:coverage": "vitest run --coverage",
-    "audit:migration": "node --import tsx tooling/migration-audit.ts",
-    "validate": "pnpm lint && pnpm build && pnpm audit:migration"
   },
   "lint-staged": {
     "*.{astro,ts,tsx,mjs,cjs,json,css,scss}": [
