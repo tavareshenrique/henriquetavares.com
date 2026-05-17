@@ -4,7 +4,6 @@
   "description": "Henrique Tavares",
   "version": "1.0.0",
   "author": "Henrique Tavares <ihenrits@gmail.com>",
-  "dependencies": {},
   "devDependencies": {
     "@astrojs/tailwind": "^6.0.0",
     "@eslint/js": "^9.24.0",
@@ -21,6 +20,7 @@
     "postcss": "^8.4.0",
     "prettier": "^3.5.0",
     "prettier-plugin-astro": "^0.14.0",
+    "sharp": "^0.34.5",
     "tailwindcss": "^3.4.0",
     "tsx": "^4.19.0",
     "typescript": "^5.7.0",
@@ -42,8 +42,8 @@
     "format:check": "prettier --check \"{astro.config.*,tailwind.config.*,eslint.config.mjs,vitest.config.ts,src/**/*.{astro,ts,tsx,css,scss},src/**/*.json,tooling/**/*.{mjs,js,ts},tests/**/*.{ts,mjs}}\"",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "audit:migration": "tsx tooling/migration-audit.ts",
-    "validate": "yarn lint && yarn build && yarn audit:migration"
+    "audit:migration": "node --import tsx tooling/migration-audit.ts",
+    "validate": "pnpm lint && pnpm build && pnpm audit:migration"
   },
   "lint-staged": {
     "*.{astro,ts,tsx,mjs,cjs,json,css,scss}": [

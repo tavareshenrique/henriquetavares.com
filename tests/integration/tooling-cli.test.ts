@@ -7,7 +7,7 @@ const repoRoot = path.resolve(__dirname, '..', '..');
 describe('lint and format CLI', () => {
   it('runs ESLint successfully', () => {
     expect(() =>
-      execSync('yarn lint', {
+      execSync('pnpm lint', {
         cwd: repoRoot,
         stdio: 'pipe',
         encoding: 'utf8',
@@ -17,7 +17,7 @@ describe('lint and format CLI', () => {
 
   it('runs Prettier check successfully', () => {
     expect(() =>
-      execSync('yarn format:check', {
+      execSync('pnpm format:check', {
         cwd: repoRoot,
         stdio: 'pipe',
         encoding: 'utf8',

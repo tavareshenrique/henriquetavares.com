@@ -10,7 +10,7 @@ const repoRoot = path.resolve(__dirname, '..', '..');
 
 describe('migration validation pipeline (integration)', () => {
   it('runs lint, build, and migration audit; audit passes on migrated site', () => {
-    execSync('yarn validate', {
+    execSync('pnpm validate', {
       cwd: repoRoot,
       stdio: 'pipe',
       encoding: 'utf8',

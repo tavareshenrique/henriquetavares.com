@@ -33,7 +33,7 @@ function distPathForBlogRoute(route: string): string {
 
 describe('Astro production build (integration)', () => {
   beforeAll(() => {
-    execSync('yarn build', {
+    execSync('pnpm build', {
       cwd: repoRoot,
       stdio: 'pipe',
       env: { ...process.env, NODE_ENV: 'test' },
@@ -232,7 +232,10 @@ describe('Astro production build (integration)', () => {
 
     const enIndex = readFileSync(distPathForBlogRoute('/en/'), 'utf8');
     expect(enIndex).toContain('data-region="homepage-intro"');
-    expect(enIndex).toContain("i'm a developer in love about Javascript");
+    // Astro escapes apostrophes in HTML text nodes.
+    expect(enIndex).toMatch(
+      /i(?:'|&#39;)m a developer in love about Javascript/i
+    );
   });
 
   it('does not materialize removed newsletter confirmation paths in dist', () => {
