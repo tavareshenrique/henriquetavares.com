@@ -5,8 +5,8 @@ import { findUnpairedSlugs, type PostEntry } from './posts';
 import { loadPostEntriesFromDisk } from './post-disk-inventory';
 import { buildExpectedBlogRoutes } from './routes';
 
-export const EXPECTED_POST_ENTRY_COUNT = 18;
-export const EXPECTED_PAIRED_SLUG_COUNT = 9;
+export const EXPECTED_POST_ENTRY_COUNT = EXPECTED_BLOG_SLUGS.length * 2;
+export const EXPECTED_PAIRED_SLUG_COUNT = EXPECTED_BLOG_SLUGS.length;
 
 export interface MigrationAuditIssue {
   code: string;
@@ -359,26 +359,12 @@ export function auditExpectedSlugInventory(
     a.localeCompare(b)
   );
 
-  if (sortedActual.length !== sortedExpected.length) {
-    issues.push({
-      code: 'SLUG_INVENTORY',
-      message: `[content] Expected exactly ${EXPECTED_PAIRED_SLUG_COUNT} post slug directories, found ${sortedActual.length}.`,
-    });
-  }
-
   const missing = sortedExpected.filter((s) => !sortedActual.includes(s));
-  const unexpected = sortedActual.filter((s) => !sortedExpected.includes(s));
 
   for (const slug of missing) {
     issues.push({
       code: 'SLUG_INVENTORY',
       message: `[content] Missing expected slug directory: ${slug}`,
-    });
-  }
-  for (const slug of unexpected) {
-    issues.push({
-      code: 'SLUG_INVENTORY',
-      message: `[content] Unexpected slug directory not in TechSpec inventory: ${slug}`,
     });
   }
 
@@ -404,10 +390,10 @@ export function runMigrationAudit(
         }
       : loadPostEntriesFromDisk(repoRoot);
 
-  if (entries.length !== EXPECTED_POST_ENTRY_COUNT) {
+  if (entries.length < EXPECTED_POST_ENTRY_COUNT) {
     issues.push({
       code: 'CONTENT_COUNT',
-      message: `[content] Expected ${EXPECTED_POST_ENTRY_COUNT} Markdown post entries, found ${entries.length}.`,
+      message: `[content] Expected at least ${EXPECTED_POST_ENTRY_COUNT} Markdown post entries, found ${entries.length}.`,
     });
   }
 

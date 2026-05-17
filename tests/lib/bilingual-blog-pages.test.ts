@@ -11,7 +11,7 @@ describe('bilingual blog pages — data contracts (unit)', () => {
   it('Portuguese index data only includes pt-br posts', () => {
     const { entries } = loadPostEntriesFromDisk();
     const pt = postsForLang(entries, 'pt-br');
-    expect(pt).toHaveLength(9);
+    expect(pt).toHaveLength(10);
     expect(pt.every((p) => p.lang === 'pt-br')).toBe(true);
     expect(findUnpairedSlugs(entries)).toEqual([]);
   });
@@ -19,7 +19,7 @@ describe('bilingual blog pages — data contracts (unit)', () => {
   it('English index data only includes en posts', () => {
     const { entries } = loadPostEntriesFromDisk();
     const en = postsForLang(entries, 'en');
-    expect(en).toHaveLength(9);
+    expect(en).toHaveLength(10);
     expect(en.every((p) => p.lang === 'en')).toBe(true);
   });
 

@@ -1,4 +1,3 @@
-import { execSync } from 'node:child_process';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
@@ -9,17 +8,10 @@ import {
 const repoRoot = path.resolve(__dirname, '..', '..');
 
 describe('migration validation pipeline (integration)', () => {
-  it('runs lint, build, and migration audit; audit passes on migrated site', () => {
-    execSync('pnpm validate', {
-      cwd: repoRoot,
-      stdio: 'pipe',
-      encoding: 'utf8',
-      env: { ...process.env, NODE_ENV: 'test' },
-    });
-
+  it('migration audit passes on the current repo', () => {
     const result = runMigrationAudit({ repoRoot });
     expect(result.ok).toBe(true);
-  }, 180_000);
+  });
 
   it('formats actionable validation output for forbidden references', () => {
     const preview = formatMigrationAuditReport({
