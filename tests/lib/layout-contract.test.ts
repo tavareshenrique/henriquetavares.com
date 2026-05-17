@@ -74,9 +74,8 @@ describe('BaseLayout analytics wiring', () => {
     src = readFileSync(file, 'utf8');
   });
 
-  it('imports Analytics from @vercel/analytics/astro', () => {
-    expect(src).toContain("from '@vercel/analytics/astro'");
-    expect(src).toContain('Analytics');
+  it('imports Analytics as default from @vercel/analytics/astro', () => {
+    expect(src).toMatch(/import Analytics from '@vercel\/analytics\/astro'/);
   });
 
   it('renders the <Analytics> component inside <head>', () => {
@@ -88,7 +87,8 @@ describe('BaseLayout analytics wiring', () => {
     expect(analyticsPos).toBeLessThan(headClose);
   });
 
-  it('filters out /layout-verify/ events via beforeSend', () => {
+  it('filters /layout-verify/ via window.webAnalyticsBeforeSend', () => {
+    expect(src).toContain('webAnalyticsBeforeSend');
     expect(src).toContain('/layout-verify/');
     expect(src).toContain('return null');
   });
