@@ -2,7 +2,7 @@
   "name": "henrique-tavares",
   "private": false,
   "description": "Blog pessoal para compartilhar meus conhecimentos e experiências.",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "author": {
     "name": "Henrique Tavares",
     "email": "ihenrits@gmail.com",
@@ -10,6 +10,7 @@
   },
   "homepage": "https://henriquetavares.com",
   "license": "MIT",
+  "packageManager": "pnpm@10.13.1",
   "scripts": {
     "prepare": "husky",
     "dev": "astro dev",
@@ -22,7 +23,7 @@
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "audit:migration": "node --import tsx tooling/migration-audit.ts",
-    "validate": "pnpm lint && pnpm build && pnpm audit:migration"
+    "validate": "pnpm lint && pnpm format:check && pnpm test && pnpm build && pnpm audit:migration"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^6.0.0",
