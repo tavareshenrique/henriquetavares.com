@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it } from 'vitest';
 import {
   LAYOUT_STYLE_MARKER_ATTR,
   LAYOUT_STYLE_MARKER_VALUE,
@@ -64,6 +64,33 @@ describe('BaseLayout stylesheet wiring', () => {
     const src = readFileSync(file, 'utf8');
     expect(src).toContain("'../styles/global.css'");
     expect(src).toContain('LAYOUT_STYLE_MARKER_ATTR');
+  });
+});
+
+describe('BaseLayout analytics wiring', () => {
+  const file = path.join(repoRoot, 'src', 'layouts', 'BaseLayout.astro');
+  let src: string;
+  beforeAll(() => {
+    src = readFileSync(file, 'utf8');
+  });
+
+  it('imports Analytics as default from @vercel/analytics/astro', () => {
+    expect(src).toMatch(/import Analytics from '@vercel\/analytics\/astro'/);
+  });
+
+  it('renders the <Analytics> component inside <head>', () => {
+    expect(src).toContain('<Analytics');
+    const headOpen = src.indexOf('<head>');
+    const headClose = src.indexOf('</head>');
+    const analyticsPos = src.indexOf('<Analytics');
+    expect(analyticsPos).toBeGreaterThan(headOpen);
+    expect(analyticsPos).toBeLessThan(headClose);
+  });
+
+  it('filters /layout-verify/ via window.webAnalyticsBeforeSend', () => {
+    expect(src).toContain('webAnalyticsBeforeSend');
+    expect(src).toContain('/layout-verify/');
+    expect(src).toContain('return null');
   });
 });
 

@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Analytics from '@vercel/analytics/astro';
 import type { BaseDocumentProps } from '../lib/layout-contract';
 import {
   assertBaseDocumentProps,
@@ -78,6 +79,13 @@ const htmlLang = lang === 'pt-br' ? 'pt-BR' : 'en';
       })();
     </script>
     <slot name="head" />
+    <script is:inline>
+      window.webAnalyticsBeforeSend = function (event) {
+        if (event.url.includes('/layout-verify/')) return null;
+        return event;
+      };
+    </script>
+    <Analytics />
   </head>
   <body>
     <div class="mx-auto max-w-shell px-shell py-header-block">
