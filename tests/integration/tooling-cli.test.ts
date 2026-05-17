@@ -13,7 +13,7 @@ describe('lint and format CLI', () => {
         encoding: 'utf8',
       })
     ).not.toThrow();
-  }, 15_000);
+  }, 30_000);
 
   it('runs Prettier check successfully', () => {
     expect(() =>

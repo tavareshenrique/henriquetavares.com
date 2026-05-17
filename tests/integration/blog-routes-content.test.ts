@@ -7,16 +7,18 @@ import {
 } from '../helpers/load-post-entries';
 
 describe('blog routes + posts against migrated content (integration)', () => {
-  it('loads 18 posts across 9 translation pairs with no unpaired slugs', () => {
+  it('loads 20 posts across 10 translation pairs with no unpaired slugs', () => {
     const { slugs, entries } = loadPostEntriesFromDisk();
     expect(slugs).toEqual(
-      [...EXPECTED_SLUGS].sort((a, b) => a.localeCompare(b))
+      expect.arrayContaining(
+        [...EXPECTED_SLUGS].sort((a, b) => a.localeCompare(b))
+      )
     );
-    expect(entries).toHaveLength(18);
+    expect(entries).toHaveLength(20);
     expect(findUnpairedSlugs(entries)).toEqual([]);
 
     const pairs = groupPostsBySlug(entries);
-    expect(pairs.size).toBe(9);
+    expect(pairs.size).toBe(10);
     for (const slug of EXPECTED_SLUGS) {
       const pair = pairs.get(slug);
       expect(pair?.en?.lang).toBe('en');
@@ -24,11 +26,11 @@ describe('blog routes + posts against migrated content (integration)', () => {
     }
   });
 
-  it('expects exactly 20 blog routes (2 indexes + 9 slugs × 2 locales)', () => {
+  it('expects exactly 22 blog routes (2 indexes + 10 slugs × 2 locales)', () => {
     const { entries } = loadPostEntriesFromDisk();
     const slugs = [...new Set(entries.map((e) => e.slug))];
     const routes = buildExpectedBlogRoutes(slugs);
-    expect(routes).toHaveLength(20);
+    expect(routes).toHaveLength(22);
 
     const audit = auditBlogRoutes({
       posts: entries,

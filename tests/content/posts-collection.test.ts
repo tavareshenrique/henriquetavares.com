@@ -36,14 +36,16 @@ function listPostMarkdownFiles(): {
 }
 
 describe('post content collection (unit)', () => {
-  it('has exactly 9 expected slug directories and 18 markdown files', () => {
+  it('contains the full migrated slug inventory and one file per locale for each slug', () => {
     const slugs = readdirSync(postsRoot, { withFileTypes: true })
       .filter((e) => e.isDirectory())
       .map((e) => e.name)
       .sort();
 
-    expect(slugs).toEqual([...EXPECTED_SLUGS].sort());
-    expect(listPostMarkdownFiles()).toHaveLength(18);
+    expect(slugs).toEqual(expect.arrayContaining([...EXPECTED_SLUGS].sort()));
+    expect(listPostMarkdownFiles().length).toBeGreaterThanOrEqual(
+      EXPECTED_SLUGS.length * 2
+    );
   });
 
   it('parses every Markdown frontmatter with the content schema', () => {

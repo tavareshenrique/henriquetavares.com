@@ -69,7 +69,7 @@ pnpm format:check   # verifica formatação
 pnpm test           # roda os testes com Vitest
 pnpm test:coverage  # roda testes com cobertura
 pnpm audit:migration # valida invariantes da migração
-pnpm validate       # lint + build + auditoria de migração
+pnpm validate       # lint + formatação + testes + build + auditoria de migração
 ```
 
 ### Publicando ou Mantendo Posts
@@ -91,7 +91,7 @@ tags:
 updateDate: 2026-05-17
 ```
 
-`updateDate` e `tags` são opcionais. Antes de publicar, rode `pnpm validate` para conferir lint, build e auditoria de rotas/conteúdo.
+`updateDate` e `tags` são opcionais. Antes de publicar, rode `pnpm validate` para conferir lint, formatação, testes, build e auditoria de rotas/conteúdo.
 
 ### Contexto da Migração
 

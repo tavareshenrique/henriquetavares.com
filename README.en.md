@@ -91,7 +91,7 @@ tags:
 updateDate: 2026-05-17
 ```
 
-`updateDate` and `tags` are optional. Before publishing, run `pnpm validate` to check lint, build, and the route/content migration audit.
+`updateDate` and `tags` are optional. Before publishing, run `pnpm validate` to check lint, formatting, tests, build, and the route/content migration audit.
 
 ### Migration Context
 

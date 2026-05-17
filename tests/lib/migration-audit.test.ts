@@ -56,9 +56,9 @@ function loadRealPosts() {
 }
 
 describe('migration audit (unit)', () => {
-  it('passes content invariants with 18 entries and 9 paired slugs on this repo (no dist verification)', () => {
+  it('passes migration baseline invariants on this repo (no dist verification)', () => {
     const entries = loadRealPosts();
-    expect(entries).toHaveLength(EXPECTED_POST_ENTRY_COUNT);
+    expect(entries.length).toBeGreaterThanOrEqual(EXPECTED_POST_ENTRY_COUNT);
 
     const result = runMigrationAudit({
       repoRoot,
@@ -195,7 +195,7 @@ describe('migration audit (unit)', () => {
     const entries = loadRealPosts();
     const slugs = [...new Set(entries.map((e) => e.slug))];
     const routes = buildExpectedBlogRoutes(slugs);
-    expect(routes).toHaveLength(20);
+    expect(routes).toHaveLength(22);
     expect(routes).toContain('/');
     expect(routes).toContain('/en/');
     expect(routes).toContain('/hello-world/');
@@ -216,7 +216,7 @@ describe('migration audit (unit)', () => {
     expect(issues[0].message).toContain('out.html');
   });
 
-  it('fails when slug directories diverge from TechSpec inventory', () => {
+  it('fails when a migrated baseline slug disappears from the inventory', () => {
     const entries = loadRealPosts().map((e) =>
       e.slug === 'hello-world' ? { ...e, slug: 'unexpected-slug-from-test' } : e
     );

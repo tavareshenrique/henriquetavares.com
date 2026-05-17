@@ -81,17 +81,17 @@ describe('Astro production build (integration)', () => {
     );
     expect(html).toContain('data-blog-styles');
     expect(html).toContain('Henrique Tavares');
-    expect(html).not.toMatch(/gatsby-/i);
+    expect(html).not.toMatch(/class="[^"]*gatsby-/i);
     expect(html).toContain('Seja bem vindo ao meu Evernote Público');
     expect(html).toContain('data-testid="lang-switch"');
     expect(html).toContain('href="/en/"');
   });
 
-  it('materializes exactly 20 public blog routes in dist', () => {
+  it('materializes exactly 22 public blog routes in dist', () => {
     const { entries } = loadPostEntriesFromDisk();
     const slugs = [...new Set(entries.map((e) => e.slug))];
     const routes = buildExpectedBlogRoutes(slugs);
-    expect(routes).toHaveLength(20);
+    expect(routes).toHaveLength(22);
     for (const route of routes) {
       expect(
         existsSync(distPathForBlogRoute(route)),
@@ -140,7 +140,7 @@ describe('Astro production build (integration)', () => {
   it('renders static 404 HTML without Gatsby markers', () => {
     const html = readFileSync(path.join(repoRoot, 'dist', '404.html'), 'utf8');
     expect(html).toContain('data-blog-styles');
-    expect(html).not.toMatch(/gatsby-/i);
+    expect(html).not.toMatch(/class="[^"]*gatsby-/i);
   });
 
   it('renders layout-verify fixture with prose regions and Prism classes', () => {
@@ -155,8 +155,87 @@ describe('Astro production build (integration)', () => {
     expect(html).toContain('data-region="article-site-footer"');
     expect(html).toMatch(/language-/);
     expect(html).toContain('blog-code-frame');
-    expect(html).not.toMatch(/gatsby-/i);
+    expect(html).not.toMatch(/class="[^"]*gatsby-/i);
     expect(html).toContain('noindex');
+  });
+
+  it('renders classless inline code in layout-verify fixture', () => {
+    const html = readFileSync(
+      path.join(repoRoot, 'dist', 'layout-verify', 'index.html'),
+      'utf8'
+    );
+    expect(html).toContain('<code>~60-120s</code>');
+    expect(html).toContain('<code>/en/</code>');
+  });
+
+  it('renders classless inline code in the migration post body', () => {
+    const migrationSlug =
+      'migrating-this-blog-from-gatsby-to-astro-and-netlify-to-vercel';
+    const ptHtml = readFileSync(
+      distPathForBlogRoute(`/${migrationSlug}/`),
+      'utf8'
+    );
+    expect(ptHtml).toContain('<code>~60-120s</code>');
+    expect(ptHtml).toContain('<code>~8s</code>');
+  });
+
+  it('global.css covers classless inline code inside .markdown-body', () => {
+    const css = readFileSync(
+      path.join(repoRoot, 'src', 'styles', 'global.css'),
+      'utf8'
+    );
+    expect(css).toMatch(/\.markdown-body\s+:not\(pre\)\s*>\s*code/);
+  });
+
+  it('renders ul and ol list elements in layout-verify fixture', () => {
+    const html = readFileSync(
+      path.join(repoRoot, 'dist', 'layout-verify', 'index.html'),
+      'utf8'
+    );
+    expect(html).toMatch(/<ul[^>]*>[\s\S]*?<li/);
+    expect(html).toMatch(/<ol[^>]*>[\s\S]*?<li/);
+    expect(html).toContain('Unordered item one');
+    expect(html).toContain('Ordered item one');
+  });
+
+  it('renders bare pre.language-* block in layout-verify fixture', () => {
+    const html = readFileSync(
+      path.join(repoRoot, 'dist', 'layout-verify', 'index.html'),
+      'utf8'
+    );
+    expect(html).toMatch(/<pre\s[^>]*class="language-js"[^>]*>/);
+    expect(html).toContain('data-language="js"');
+  });
+
+  it('real post body contains fenced code blocks rendered as pre.language-*', () => {
+    const html = readFileSync(
+      distPathForBlogRoute('/babel-root-import-ts-reactjs-react-native/'),
+      'utf8'
+    );
+    expect(html).toMatch(/<pre\s[^>]*class="[^"]*language-/);
+  });
+
+  it('global.css applies background to .markdown-body pre[class*=language-]', () => {
+    const css = readFileSync(
+      path.join(repoRoot, 'src', 'styles', 'global.css'),
+      'utf8'
+    );
+    expect(css).toMatch(
+      /\.markdown-body\s+pre\[class\*=['"']language-['"']\]\s*\{[^}]*background:\s*var\(--blog-code-bg\)/
+    );
+  });
+
+  it('global.css restores list-style-type markers inside .markdown-body', () => {
+    const css = readFileSync(
+      path.join(repoRoot, 'src', 'styles', 'global.css'),
+      'utf8'
+    );
+    expect(css).toMatch(
+      /\.markdown-body\s+ul\s*\{[^}]*list-style-type\s*:\s*disc/
+    );
+    expect(css).toMatch(
+      /\.markdown-body\s+ol\s*\{[^}]*list-style-type\s*:\s*decimal/
+    );
   });
 
   it('emits canonical, alternates, and Open Graph metadata for representative posts', () => {
