@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@vercel/analytics':
+        specifier: ^1.5.0
+        version: 1.6.1
     devDependencies:
       '@astrojs/tailwind':
         specifier: ^6.0.0
@@ -14,9 +18,6 @@ importers:
       '@eslint/js':
         specifier: ^9.24.0
         version: 9.39.4
-      '@vercel/analytics':
-        specifier: ^1.5.0
-        version: 1.6.1
       '@vitest/coverage-v8':
         specifier: ^3.0.0
         version: 3.2.4(vitest@3.2.4(@types/debug@4.1.13)(@types/node@25.8.0)(happy-dom@20.9.0)(jiti@1.21.7)(tsx@4.22.1)(yaml@2.9.0))
