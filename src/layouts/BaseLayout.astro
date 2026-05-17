@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 import type { BaseDocumentProps } from '../lib/layout-contract';
 import {
   assertBaseDocumentProps,
@@ -86,6 +87,7 @@ const htmlLang = lang === 'pt-br' ? 'pt-BR' : 'en';
       };
     </script>
     <Analytics />
+    <SpeedInsights />
   </head>
   <body>
     <div class="mx-auto max-w-shell px-shell py-header-block">

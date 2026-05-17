@@ -37,6 +37,7 @@ describe('Task 09: legacy Gatsby runtime stripped from manifests and tree', () =
   it('keeps production dependencies minimal — only analytics runtime', () => {
     expect(packageJson().dependencies ?? {}).toEqual({
       '@vercel/analytics': expect.any(String),
+      '@vercel/speed-insights': expect.any(String),
     });
   });
 
