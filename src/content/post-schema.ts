@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from 'astro/zod';
 
 /**
  * Shared Zod schema for blog post frontmatter (English `index.md` and
