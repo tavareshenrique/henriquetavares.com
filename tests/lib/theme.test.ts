@@ -30,7 +30,7 @@ describe('theme preference helpers', () => {
       getItem() {
         throw new Error('blocked');
       },
-    } as Storage;
+    } as unknown as Storage;
     expect(safeLocalStorageGetItem(storage, THEME_STORAGE_KEY)).toBeNull();
   });
 
@@ -39,7 +39,7 @@ describe('theme preference helpers', () => {
       setItem() {
         throw new Error('blocked');
       },
-    } as Storage;
+    } as unknown as Storage;
     expect(() =>
       safeLocalStorageSetItem(storage, THEME_STORAGE_KEY, 'light')
     ).not.toThrow();
