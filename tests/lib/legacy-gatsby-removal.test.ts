@@ -43,7 +43,7 @@ describe('Task 09: legacy Gatsby runtime stripped from manifests and tree', () =
 
   it('still owns migrated Markdown under src/content/posts', () => {
     expect(existsSync(path.join(repoRoot, 'src/content/posts'))).toBe(true);
-    expect(existsSync(path.join(repoRoot, 'src/content/config.ts'))).toBe(true);
+    expect(existsSync(path.join(repoRoot, 'src/content.config.ts'))).toBe(true);
   });
 
   it('does not keep Astro routes for /thanks or /confirm', () => {
